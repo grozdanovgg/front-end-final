@@ -1,6 +1,15 @@
-header{
-    background-color: green;
+body {
+    background-color: yellowgreen;
 }
+header{
+    /* background-color: green; */
+    height: 25em !important;
+    background: url(../img/background-top-1.png), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAM0lEQVQoU2NkwAQNDAwMIIwMGhjRBbApAokhK8RqEkwjTCFeRSBbQQoJKoIpRPfOkPUMAMG7EwvScTT3AAAAAElFTkSuQmCC),url(../img/background-top-0.png);
+    background-position: center 12em,top center,top center;
+    background-repeat: no-repeat,repeat,no-repeat;
+    background-size: auto,auto,auto;
+}
+
 section{
     background-color: gray;
 }
