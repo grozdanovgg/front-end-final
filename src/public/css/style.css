@@ -9,11 +9,43 @@ header{
     background-repeat: no-repeat,repeat,no-repeat;
     background-size: auto,auto,auto;
 }
+footer{
+    /* background-color: green; */
+    color: white;
+    height: 15em !important;
+    background: url(../img/background-bottom-1.png), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAM0lEQVQoU2NkwAQNDAwMIIwMGhjRBbApAokhK8RqEkwjTCFeRSBbQQoJKoIpRPfOkPUMAMG7EwvScTT3AAAAAElFTkSuQmCC),url(../img/background-bottom-0.png);
+    background-position: center top,top center,top center;
+    background-repeat: no-repeat,repeat,no-repeat;
+    background-size: auto,auto,auto;
+}
+
+.footer-container .col{
+    padding: 2em;
+}
 
 section{
     background-color: gray;
 }
 
-footer{
-    background-color: cyan;
+
+.logo{
+    /* height: 5em; */
+    height:100%;
+    align-content: center;
 }
+.logo-footer{
+   height: 2em
+}
+
+.first-row{
+    padding-top: 2em !important;
+}
+.slogan{
+    color: white !important;
+    padding-top: 1.5em !important;
+}
+
+.text-align-left{
+    text-align: left;
+}
+

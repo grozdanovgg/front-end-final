@@ -7,6 +7,7 @@
     <title>Front ent final</title>
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./node_modules/toastr/build/toastr.css" rel="stylesheet">
+    <link href="./css/libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="./css/carousel.css" rel="stylesheet">
     <link href="./css/nav.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
@@ -14,9 +15,17 @@
 
 <body>
     <header class="container-fluid">
-        <!-- Navigation START-->
-        <div class="row justify-content-md-center">
-            <h1 class="col col-md-4">Header here</h1>
+        <div class="row first-row justify-content-md-center">
+            <!-- Logo START-->
+            <div class="col col-md-2">
+                <img src="./img/logo.png" class="logo" alt="logo image">
+            </div>
+            <div class="slogan col-md-2 text-align-left">
+                Slogan goes here
+            </div>
+            <!-- Logo END-->
+
+            <!-- Navigation START-->
             <nav class="navbar navbar-expand-sm navbar-light bg-light col-md-8">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -47,16 +56,11 @@
                     </ul>
                 </div>
             </nav>
+            <!-- Navigation END -->
         </div>
-        <!-- Navigation END -->
 
         <!-- Carousel START-->
         <div id="myCarousel" class="row carousel slide" data-ride="carousel">
-            <!-- <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol> -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="container">
@@ -101,12 +105,66 @@
         <!-- Carousel END-->
 
     </header>
+
     <section class="containerfluid-fluid">
         <h1>Main section here</h1>
         <div id="contents">
     </section>
-    <footer class="container-fluid">
-        <h1>Footer here</h1>
+
+    <footer class="container-fluid d-flex flex-column">
+        <div class="footer-container row mb-auto p-2">
+            <div class="col">
+                <img class="logo-footer" src="./img/logo.png" alt="logo">
+                <span><strong class="small">2017 Copyright</strong></span>
+                <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                <span class="small">
+                     Unites beauty and advanced technology to create your stunning website. It’s easy and free.
+                </span>
+            </div>
+            <div class="col">
+                <h5>Recent posts</h5>
+                <ul class="small">
+                    <li>We’ve got you covered</li>
+                    <li>free websites</li>
+                    <li>easy drag and drop</li>
+                    <li>designer-made templates</li>
+                    <li>beautiful galleries</li>
+                    <li> mobile optimized</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h5>Archives</h5>
+                <ul class="small">
+                    <li>We’ve got you covered</li>
+                    <li>free websites</li>
+                    <li>easy drag and drop</li>
+                    <li>designer-made templates</li>
+                    <li>beautiful galleries</li>
+                    <li> mobile optimized</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row p-2">
+            <!-- Footer navigation START -->
+            <ul class="col nav justify-content-start small">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <!-- Footer navigation END -->
+            <div class="col text-right">
+                <p>Designed by @grozdanovgg</p>
+            </div>
+        </div>
 
     </footer>
 
