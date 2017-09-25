@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Front ent final</title>
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./node_modules/toastr/build/toastr.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/nav.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="container-fluid">
+
+        <div class="row justify-content-md-right">
+            <h1 class="col col-lg-4">Header here</h1>
+            <nav class="navbar navbar-expand-sm navbar-light bg-light col-sm-8 ">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto" id="menu-bar">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                href="#">Products</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li class="dropdown-item"><a href="#">Products Sub Menu 1</a></li>
+                                <li class="dropdown-item"><a href="#">Products Sub Menu 2</a></li>
+                                <li class="dropdown-item"><a href="#">Products Sub Menu 3</a></li>
+                                <li class="dropdown-item"><a href="#">Products Sub Menu 4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="containerfluid-fluid">
+        <h1>Main section here</h1>
+        <div id="contents">
+    </section>
+    <footer class="container-fluid">
+        <h1>Footer here</h1>
+
+    </footer>
+
+    <script src="./node_modules/systemjs/dist/system.js"></script>
+    <script src="./system-config.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="./node_modules/navigo/lib/navigo.min.js"></script>
+    <script src="./node_modules/toastr/build/toastr.min.js" defer></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js" defer></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" defer></script>
+
+</body>
+
+</html>
