@@ -1,6 +1,7 @@
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
+  z-index: 2;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {

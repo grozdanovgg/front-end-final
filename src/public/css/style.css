@@ -3,11 +3,15 @@ body {
 }
 header{
     /* background-color: green; */
-    height: 25em !important;
+    height: 30em !important;
     background: url(../img/background-top-1.png), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAM0lEQVQoU2NkwAQNDAwMIIwMGhjRBbApAokhK8RqEkwjTCFeRSBbQQoJKoIpRPfOkPUMAMG7EwvScTT3AAAAAElFTkSuQmCC),url(../img/background-top-0.png);
-    background-position: center 12em,top center,top center;
+    background-position: center 17em,top center,top center;
     background-repeat: no-repeat,repeat,no-repeat;
     background-size: auto,auto,auto;
+}
+
+#main-root{
+    z-index: 10;
 }
 footer{
     /* background-color: green; */
@@ -19,9 +23,9 @@ footer{
     background-size: auto,auto,auto;
 }
 
-.footer-container .col{
-    padding: 2em;
-}
+ .footer-container .col{
+        padding: 2em;
+    }
 
 section{
     background-color: white !important;
@@ -34,17 +38,19 @@ section{
 
 .logo{
     /* height: 5em; */
-    height:100%;
+    height:4em;
     align-content: center;
 }
 .logo-footer{
-   height: 2em
+height: 2em
 }
 
 .first-row{
     padding-top: 2em !important;
 }
 .slogan{
+    position: absolute;
+    padding-left: 10em;
     color: white !important;
     padding-top: 1.5em !important;
 }
@@ -53,3 +59,13 @@ section{
     text-align: left;
 }
 
+
+@media screen and (min-width: 992px) {
+    header{
+        /* background-color: green; */
+        height: 25em !important;
+        background-position: center 12em,top center,top center;
+    }
+
+   
+}

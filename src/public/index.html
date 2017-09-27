@@ -15,43 +15,54 @@
 
 <body>
     <header class="container-fluid">
-        <div class="row first-row justify-content-md-center">
+        <div class="row first-row">
             <!-- Logo START-->
-            <div class="col col-md-2">
+            <div class="col col-md-6">
                 <img src="./img/logo.png" class="logo" alt="logo image">
             </div>
-            <div class="slogan col-md-2 text-align-left">
+            <div class="slogan">
                 It All Starts with Your Stunning Website
             </div>
             <!-- Logo END-->
 
             <!-- Navigation START-->
-            <nav class="navbar navbar-expand-sm navbar-light bg-light col-md-8">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+            <nav class="navbar navbar-expand-sm navbar-light col-md-6 ">
+                <div class="navbar-toggler-wrap">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="navbar-custom-toggler-icon fa fa-bars fa-lg" aria-hidden="true"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                </div>
+                <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto" id="menu-bar">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#">Themes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Support</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                href="#">Products</a>
+                                href="#">User account</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li class="dropdown-item"><a href="#">Products Sub Menu 1</a></li>
-                                <li class="dropdown-item"><a href="#">Products Sub Menu 2</a></li>
-                                <li class="dropdown-item"><a href="#">Products Sub Menu 3</a></li>
-                                <li class="dropdown-item"><a href="#">Products Sub Menu 4</a></li>
+                                <li class="dropdown-item"><a href="#">Login</a></li>
+                                <li class="dropdown-item"><a href="#">Register</a></li>
                             </ul>
-
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">FAQ</a>
                         </li>
                     </ul>
                 </div>
@@ -64,7 +75,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="container">
-                        <div class="carousel-caption d-none d-md-block">
+                        <div class="carousel-caption d-md-block">
                             <h1>Example headline.</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
                                 at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -74,7 +85,7 @@
                 </div>
                 <div class="carousel-item">
                     <div class="container">
-                        <div class="carousel-caption d-none d-md-block">
+                        <div class="carousel-caption d-md-block">
                             <h1>Another example headline.</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
                                 at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -84,7 +95,7 @@
                 </div>
                 <div class="carousel-item">
                     <div class="container">
-                        <div class="carousel-caption d-none d-md-block">
+                        <div class="carousel-caption d-md-block">
                             <h1>One more for good measure.</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
                                 at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -143,7 +154,7 @@
                     <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link" href="#">Disabled</a>
                 </li>
             </ul>
             <!-- Footer navigation END -->
