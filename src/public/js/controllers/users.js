@@ -15,16 +15,16 @@ toastr.options = {
 Database.app.auth()
     .onAuthStateChanged(user => {
         usersController.toggleButtons(user)
-            // if (!user.isAnonymous) {
-            //     let side = new SideBar();
-            //     Database.getFavorites().then((favs) => {
-            //         const indices = [];
-            //         console.log(favs);
-            //         favs.forEach(x => indices.push(Data.getIndex(x)));
-            //         console.log(indices)
-            //         side.callFavorites(indices);
-            //     })
-            // }
+        // if (!user.isAnonymous) {
+        //     let side = new SideBar();
+        //     Database.getFavorites().then((favs) => {
+        //         const indices = [];
+        //         console.log(favs);
+        //         favs.forEach(x => indices.push(Data.getIndex(x)));
+        //         console.log(indices)
+        //         side.callFavorites(indices);
+        //     })
+        // }
     });
 
 class User {
@@ -42,45 +42,45 @@ const usersController = {
         //console.log(`${params.id} is id and ${params.action} is action`);
 
         templater.get('user').then(template => {
-                const user = Database.app.auth().currentUser;
-                $('#contents').html(template(user));
-                $('#get-favs').on('click', () => {
-                    Database.getFavorites()
-                        .then(
-                            response => {
-                                const strRes = response;
-                                console.log(strRes);
-                                $('#favs').html(strRes);
-                            });
-                });
-                $('#savebutton').on('click', () => {
-                    const properties = {
-                        displayName: $('#nameinput').val(),
-                        email: $('#emailnput').val(),
-                        password: $('#passwordinput').val()
-                    }
-                    console.log(properties);
-                    const authUser = Database.app.auth().currentUser;
-                    authUser.updateProfile(properties)
-                        .then(() => toastr.success('User updated'));
-
-                });
-                $('#deletebutton').on('click', () => {
-                    usersController.deleteUser();
-                });
-
-                // $('#load-companies').on('click', () => Database.loadCompanies());
-                // $('#load-symbols').on('click', () => Database.loadSymbols());
-
-                Database.watchFavorites();
+            const user = Database.app.auth().currentUser;
+            $('#contents').html(template(user));
+            $('#get-favs').on('click', () => {
                 Database.getFavorites()
                     .then(
-                        response => {
-                            const strRes = response;
-                            //console.log(strRes);
-                            $('#favs').html(strRes);
-                        });
-            })
+                    response => {
+                        const strRes = response;
+                        console.log(strRes);
+                        $('#favs').html(strRes);
+                    });
+            });
+            $('#savebutton').on('click', () => {
+                const properties = {
+                    displayName: $('#nameinput').val(),
+                    email: $('#emailnput').val(),
+                    password: $('#passwordinput').val()
+                }
+                console.log(properties);
+                const authUser = Database.app.auth().currentUser;
+                authUser.updateProfile(properties)
+                    .then(() => toastr.success('User updated'));
+
+            });
+            $('#deletebutton').on('click', () => {
+                usersController.deleteUser();
+            });
+
+            // $('#load-companies').on('click', () => Database.loadCompanies());
+            // $('#load-symbols').on('click', () => Database.loadSymbols());
+
+            Database.watchFavorites();
+            Database.getFavorites()
+                .then(
+                response => {
+                    const strRes = response;
+                    //console.log(strRes);
+                    $('#favs').html(strRes);
+                });
+        })
             .catch(error => toastr.error(error.message));
     },
 
@@ -203,7 +203,7 @@ const usersController = {
 
     clickOutOfForm() {
         // TODO Make form close on click in top bar?
-        $('#popup').click(function(event) {
+        $('#popup').click(function (event) {
             const id = $(event.target).attr('id');
             const cls = $(event.target).attr('class');
 

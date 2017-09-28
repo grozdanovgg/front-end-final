@@ -14,19 +14,21 @@
 </head>
 
 <body>
-    <header class="container-fluid">
+    <header class="container-fluid background-standard">
         <div class="row first-row">
             <!-- Logo START-->
-            <div class="col col-md-6">
+            <div class="col col-md-2">
                 <img src="./img/logo.png" class="logo" alt="logo image">
             </div>
-            <div class="slogan">
+            <div class="slogan col-md-4">
                 It All Starts with Your Stunning Website
             </div>
             <!-- Logo END-->
 
             <!-- Navigation START-->
             <nav class="navbar navbar-expand-sm navbar-light col-md-6 ">
+                <a class="navbar-brand" href="#"></a>
+
                 <div class="navbar-toggler-wrap">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -70,51 +72,7 @@
             <!-- Navigation END -->
         </div>
 
-        <!-- Carousel START-->
-        <div id="myCarousel" class="row carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="container">
-                        <div class="carousel-caption d-md-block">
-                            <h1>Example headline.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                                at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="carousel-caption d-md-block">
-                            <h1>Another example headline.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                                at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="container">
-                        <div class="carousel-caption d-md-block">
-                            <h1>One more for good measure.</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-                                at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-        </div>
-        <!-- Carousel END-->
-
+        <div id="carousel-container"></div>
     </header>
 
     <section class="containerfluid-fluid">
@@ -124,12 +82,20 @@
     <footer class="container-fluid d-flex flex-column">
         <div class="footer-container row mb-auto p-2">
             <div class="col">
-                <img class="logo-footer" src="./img/logo.png" alt="logo">
-                <span><strong class="small">2017 Copyright</strong></span>
-                <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-                <span class="small">
-                     Unites beauty and advanced technology to create your stunning website. It’s easy and free.
-                </span>
+                <div class="row">
+
+                    <img class="logo-footer float-left" src="./img/logo.png" alt="logo">
+                    <strong class="small float-right">2017 Copyright</strong>
+                </div>
+                <div>
+                    <i class="fa fa-info-circle fa-2x float-left p-2" aria-hidden="true"></i>
+                    <p class="small">
+                        Unites beauty and advanced technology to create your stunning website. It’s easy and free. Unites beauty and advanced technology
+                        to create your stunning website. It’s easy and free.Unites beauty and advanced technology to create
+                        your stunning website. It’s easy and free. Unites beauty and advanced technology to create your stunning
+                        website. It’s easy and free.
+                    </p>
+                </div>
             </div>
             <div class="col">
                 <h5>Recent posts</h5>
@@ -141,6 +107,7 @@
 
             </div>
         </div>
+        <!-- Footer bottom START -->
         <div class="row p-2">
             <!-- Footer navigation START -->
             <ul class="col nav justify-content-start small">
@@ -162,6 +129,7 @@
                 <p>Designed by @grozdanovgg</p>
             </div>
         </div>
+        <!-- Footer bottom END -->
 
     </footer>
 

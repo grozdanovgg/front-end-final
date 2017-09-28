@@ -12,7 +12,7 @@ router.on({
     '/': () => { router.navigate('home'); },
     '/#': () => { router.navigate('home'); },
     'home': homeController.get,
-    // 'signup': usersController.signup,
+    // 'signup': usersController.get,
 }).notFound(query => {
     // called when there is path specified but
     // there is no route matching
