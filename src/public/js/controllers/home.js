@@ -17,10 +17,10 @@ const homeController = {
                 // toastr.success("Welcome home!");
             })
             .then(() => {
-                const header = $('header').removeClass('background-standard');
-                header.addClass('background-home')
+                const body = $('body').removeClass('background-standard');
+                body.addClass('background-home');
             }
-            )
+            );
     }
 };
 

@@ -139,6 +139,7 @@
 @media screen and (min-width: 960px) {
 
   .navbar{
+    padding-right: 0rem;
     position: relative;
     top: none;
   }

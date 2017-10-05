@@ -4,12 +4,13 @@
     font-family: "GeorgiaItalic";
     src:url("../fonts/GeorgiaItalic.ttf");
 }
+
 body {
+    width: 100%;
     background-color: yellowgreen;
     font-family: 'Goudy Bookletter 1911', serif;
     line-height: 2.5;
     color: gray;
-    
 }
 .background-standard {
     /* background-color: green; */
@@ -26,6 +27,9 @@ body {
     background-position: center 27em,top center,top center;
     background-repeat: no-repeat,repeat,no-repeat;
     background-size: auto,auto,auto;
+}
+header{
+    max-width: 960px;
 }
 #main-root{
     z-index: 10;
@@ -56,11 +60,17 @@ section{
     padding-right: 0px;
 }
 
+.row {
+
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
 h1{
-    font-size: 48px;
+    font-size: 40px;
 }
 h3{
-    font-size: 24px;
+    font-size: 20px;
 }
 p{
     font-family:sans-serif;
@@ -127,7 +137,7 @@ p{
     width: 100% +15px;
     height: auto;
     background: #FFFFFF;
-    margin: -15px;
+    margin: -15px 0px -15px 0px;
 }
 .bubble:after {
     content: '';
@@ -189,21 +199,19 @@ p{
 @media screen and (min-width: 960px) {
     header{
         /* background-color: green; */
-        height: 25em !important;
+        height: 560px !important;
         background-position: center 12em,top center,top center;
     }
     .background-home {
         /* background-color: green; */
         height: 30em !important;
-        background-position: center 17em,top center,top center;
+        background-position: center 21.5em,top center,top center;
     }
     .col-right{
-        padding-right: 5px !important;
         padding-left: 1.25em;
         padding-bottom: 1em;
     }
     .col-left{
-        padding-left: 5px !important;
         padding-right: 1.25em;
         padding-bottom: 1em;
     }
