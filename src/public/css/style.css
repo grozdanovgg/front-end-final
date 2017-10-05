@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911');
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans:400,700');
+@font-face {
+    font-family: "GeorgiaItalic";
+    src:url("../fonts/GeorgiaItalic.ttf");
+}
 body {
     background-color: yellowgreen;
     font-family: 'Goudy Bookletter 1911', serif;
@@ -46,6 +51,17 @@ section{
     background-size: auto;
 }
 
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+h1{
+    font-size: 48px;
+}
+h3{
+    font-size: 24px;
+}
 p{
     font-family:sans-serif;
 }
@@ -63,15 +79,21 @@ p{
     position: relative;
     left: 20px;
 }
-.first-row{
-    padding-top: 2em !important;
-}
+
 .slogan{
-    color: white !important;
+    color: #77808d !important;
     padding: 1em;
+}
+.text-georgia-italic{
+    font-family: GeorgiaItalic;
+    color: #778292;
 }
 .text-align-left{
     text-align: left;
+}
+
+.shadow-1{
+    text-shadow: 1px 1px 2px black; 
 }
 .call-to-action-button{
     text-decoration: none;
@@ -164,7 +186,7 @@ p{
   }
 
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 960px) {
     header{
         /* background-color: green; */
         height: 25em !important;
