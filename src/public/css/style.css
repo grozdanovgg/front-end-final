@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911');
 body {
     background-color: yellowgreen;
+    font-family: 'Goudy Bookletter 1911', serif;
+    line-height: 2.5;
+    color: gray;
+    
 }
 .background-standard {
     /* background-color: green; */
@@ -9,12 +14,11 @@ body {
     background-repeat: repeat,no-repeat;
     background-size: auto,auto;
 }
-
 .background-home {
     /* background-color: green; */
-    height: 30em !important;
+    height: 40em !important;
     background: url(../img/background-top-1.png), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAM0lEQVQoU2NkwAQNDAwMIIwMGhjRBbApAokhK8RqEkwjTCFeRSBbQQoJKoIpRPfOkPUMAMG7EwvScTT3AAAAAElFTkSuQmCC),url(../img/background-top-0.png);
-    background-position: center 17em,top center,top center;
+    background-position: center 27em,top center,top center;
     background-repeat: no-repeat,repeat,no-repeat;
     background-size: auto,auto,auto;
 }
@@ -22,19 +26,18 @@ body {
     z-index: 10;
 }
 footer{
-    /* background-color: green; */
     color: white;
-    /* height: 15em !important; */
     background: url(../img/background-bottom-1.png), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAM0lEQVQoU2NkwAQNDAwMIIwMGhjRBbApAokhK8RqEkwjTCFeRSBbQQoJKoIpRPfOkPUMAMG7EwvScTT3AAAAAElFTkSuQmCC),url(../img/background-bottom-0.png);
     background-position: center top,top center,top center;
     background-repeat: no-repeat,repeat,no-repeat;
     background-size: auto,auto,100% 100%;
 }
-
  .footer-container .col{
-        padding: 2em;
-    }
-
+    padding: 2em;
+}
+.footer-bottom{
+    background-color: #131a25;
+}
 section{
     background-color: white !important;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQYV2OcOnWqLwMDA0N2dvZmEM2IIQASBQGYBCO6AADn/QwdNGF7NQAAAABJRU5ErkJggg==);
@@ -43,35 +46,36 @@ section{
     background-size: auto;
 }
 
-
+p{
+    font-family:sans-serif;
+}
 .logo{
-    /* height: 5em; */
     height:4em;
     align-content: center;
 }
 .logo-footer{
-height: 2em
+    position: relative;
+    left: 5px;
+    height: 2em
 }
-
+.copyright{
+    display: block;
+    position: relative;
+    left: 20px;
+}
 .first-row{
     padding-top: 2em !important;
 }
 .slogan{
-    /* position: absolute;
-    padding-left: 10em; */
     color: white !important;
     padding: 1em;
-    /* padding-top: 1.5em !important; */
 }
-
 .text-align-left{
     text-align: left;
 }
-
 .call-to-action-button{
     text-decoration: none;
     text-align:center; 
-    padding:12px 12px; 
     border:solid 1px #004F72; 
     -webkit-border-radius:10px;
     -moz-border-radius:10px; 
@@ -96,56 +100,69 @@ height: 2em
     position: relative;
     top: -1.7em;    
 }
-
-
 .bubble {
-position: relative;
-width: 100% +15px;
-height: auto;
-background: #FFFFFF;
-margin: -15px;
+    position: relative;
+    width: 100% +15px;
+    height: auto;
+    background: #FFFFFF;
+    margin: -15px;
 }
-
 .bubble:after {
-content: '';
-position: absolute;
-border-style: solid;
-border-width: 20px 20px 0;
-border-color: #FFFFFF transparent;
-display: block;
-width: 0;
-z-index: 1;
-bottom: -20px;
-left: 49%;
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 20px 20px 0;
+    border-color: #FFFFFF transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -20px;
+    left: 45%;
 }
-
 .button {
     background: #ffffff;
-    background-image: -webkit-linear-gradient(top, #ffffff, #a3a3a3);
-    background-image: -moz-linear-gradient(top, #ffffff, #a3a3a3);
-    background-image: -ms-linear-gradient(top, #ffffff, #a3a3a3);
-    background-image: -o-linear-gradient(top, #ffffff, #a3a3a3);
-    background-image: linear-gradient(to bottom, #ffffff, #a3a3a3);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
+    background-image: -webkit-linear-gradient(top, #ffffff, #dbdbdb);
+    background-image: -moz-linear-gradient(top, #ffffff, #dbdbdb);
+    background-image: -ms-linear-gradient(top, #ffffff, #dbdbdb);
+    background-image: -o-linear-gradient(top, #ffffff, #dbdbdb);
+    background-image: linear-gradient(to bottom, #ffffff, #dbdbdb);
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
     font-family: Arial;
     color: #5c5c5c;
     font-size: 12px;
     padding: 10px 20px 10px 20px;
-    border: solid #6b6b6b 1px;
+    border: solid #c4c4c4 1px;
     text-decoration: none;
-  }
-  
-  .button:hover {
-    background: #a3a3a3;
-    background-image: -webkit-linear-gradient(top, #a3a3a3, #ffffff);
-    background-image: -moz-linear-gradient(top, #a3a3a3, #ffffff);
-    background-image: -ms-linear-gradient(top, #a3a3a3, #ffffff);
-    background-image: -o-linear-gradient(top, #a3a3a3, #ffffff);
-    background-image: linear-gradient(to bottom, #a3a3a3, #ffffff);
+}
+.button:hover {
+    background: #d6d6d6;
     text-decoration: none;
+}
+.button-read-more{
+    position: relative;
+    float: right;
+    padding-right: 15px;
+}
+
+.media-container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #DDDDDD;
+    margin-bottom: 8em;
+    border:solid 1px #AEAEAE; 
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px; 
+    border-radius: 10px; 
+}
+.modal-content {
+    width: 800px;
+    height: 500px;
+    margin-left: -150px;
   }
+
 
 @media screen and (min-width: 992px) {
     header{
@@ -153,6 +170,27 @@ left: 49%;
         height: 25em !important;
         background-position: center 12em,top center,top center;
     }
-
-   
+    .background-home {
+        /* background-color: green; */
+        height: 30em !important;
+        background-position: center 17em,top center,top center;
+    }
+    .col-right{
+        padding-right: 5px !important;
+        padding-left: 1.25em;
+        padding-bottom: 1em;
+    }
+    .col-left{
+        padding-left: 5px !important;
+        padding-right: 1.25em;
+        padding-bottom: 1em;
+    }
+    .col-middle {
+        padding-left: 1.25em;
+        padding-right: 1.25em;
+        padding-bottom: 1em;
+    }
+    .copyright{
+        display: inline;
+    }
 }
