@@ -10,8 +10,7 @@
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 25rem;
-  /* background-color: #777; */
+  height: 20rem;
 }
 .carousel-item > img {
   position: absolute;
@@ -20,6 +19,7 @@
   min-width: 100%;
   height: 32rem;
 }
+
 .carousel-control-next-icon {
   background-image : url("../img/next-icon.png");
   width: 23px;
@@ -60,6 +60,9 @@
     margin-bottom: 1.25rem;
     font-size: 1.25rem;
     line-height: 1.4;
+  }
+  .carousel-item {
+    height: 25rem;
   }
 
   .featurette-heading {

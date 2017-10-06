@@ -13,7 +13,7 @@
     <link href="./css/style.css" rel="stylesheet">
 </head>
 
-<body class=" background-standard">
+<body class="background-standard">
     <header class="container-fluid">
         <div class="row nav-row">
             <!-- Logo START-->
@@ -26,14 +26,14 @@
             <!-- Logo END-->
 
             <!-- Navigation START-->
-            <nav class="navbar navbar-expand-sm navbar-light col-md-6 ">
+            <nav class="navbar navbar-expand-lg navbar-light col">
                 <!-- <a class="navbar-brand" href="#"></a> -->
 
                 <div class="navbar-toggler-wrap">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <i class="navbar-custom-toggler-icon fa fa-bars fa-lg" aria-hidden="true"></i>
-                </button>
+                    </button>
                 </div>
                 <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto" id="menu-bar">
@@ -76,17 +76,17 @@
     </header>
 
     <section class="container-fluid">
-        <div id="main-root">
+        <div id="main-root"></div>
+        <div id="secondary-root"></div>
     </section>
 
     <footer class="container-fluid d-flex flex-column">
-        <div class="footer-container row mb-auto p-2">
+        <div class="footer-container row mb-auto mt-5 p-2">
             <div class="col col-left">
                 <img class="logo-footer" src="./img/logo.png" alt="logo">
                 <strong class="small copyright">2017 Copyright</strong>
-
                 <div>
-                    <i class="fa fa-info-circle fa-2x float-left p-2" aria-hidden="true"></i>
+                    <img class="float-left p-2" src="./img/placeholder-66-66.png" alt="placeholder">
                     <p class="small">
                         Unites beauty and advanced technology to create your stunning website. It’s easy and free. Unites beauty and advanced technology
                         to create your stunning website. It’s easy and free.Unites beauty and advanced technology to create
@@ -95,12 +95,12 @@
                     </p>
                 </div>
             </div>
-            <div class="col">
-                <h5>Recent posts</h5>
+            <div class="col col-middle">
+                <h3>Recent posts</h3>
                 <div id="footer-recent"></div>
             </div>
             <div class="col col-right">
-                <h5>Archives</h5>
+                <h3>Archives</h3>
                 <div id="footer-archived"></div>
             </div>
         </div>
@@ -122,8 +122,11 @@
                 </li>
             </ul>
             <!-- Footer navigation END -->
-            <div class="col text-right">
-                <p>Designed by @grozdanovgg</p>
+            <div class="col text-right align-middle">
+                <p>Designed by
+                    <span>@grozdanovgg</span> | Powered by
+                    <span>TelerikAcademy</span>
+                </p>
             </div>
         </div>
         <!-- Footer bottom END -->
