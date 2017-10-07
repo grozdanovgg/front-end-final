@@ -18,7 +18,9 @@
         <div class="row nav-row">
             <!-- Logo START-->
             <div class="col col-md-2">
-                <img src="./img/logo.png" class="logo" alt="logo image">
+                <a href="#!home">
+                    <img src="./img/logo.png" class="logo" alt="logo image">
+                </a>
             </div>
             <div class="slogan col-md-4 text-secondary font-italic">
                 It All Starts with Your Stunning Website
@@ -37,32 +39,39 @@
                 </div>
                 <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto" id="menu-bar">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                        <li id="nav-home" class="nav-item active">
+                            <a class="nav-link" href="#">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
+                        <li id="nav-themes" class="nav-item">
                             <a class="nav-link" href="#">Themes</a>
                         </li>
-                        <li class="nav-item">
+                        <li id="nav-features" class="nav-item">
                             <a class="nav-link" href="#">Features</a>
                         </li>
-                        <li class="nav-item">
+                        <li id="nav-about" class="nav-item">
                             <a class="nav-link" href="#">About</a>
                         </li>
-                        <li class="nav-item">
+                        <li id="nav-blog" class="nav-item">
                             <a class="nav-link" href="#!blog">Blog</a>
                         </li>
-                        <li class="nav-item">
+                        <li id="nav-support" class="nav-item">
                             <a class="nav-link" href="#">Support</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li id="nav-account" class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                 href="#">User account</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li class="dropdown-item"><a href="#">Login</a></li>
-                                <li class="dropdown-item"><a href="#">Register</a></li>
+                                <li class="dropdown-item">
+                                    <a href="#!login">Login</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#!register">Register</a>
+                                </li>
                             </ul>
                         </li>
+                        <li id="nav-user" class="nav-item dropdown hidden"></li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">FAQ</a>
                         </li>

@@ -1,7 +1,7 @@
 import Navigo from 'navigo';
 import { homeController } from 'homeController';
 import { blogController } from 'blogController';
-// import { usersController } from 'usersController';
+import { usersController } from 'usersController';
 
 var root = null;
 var useHash = true;
@@ -14,7 +14,10 @@ router.on({
     '/#': () => { router.navigate('home'); },
     'home': homeController.get,
     'blog': blogController.get,
-    // 'signup': usersController.get,
+    'register': usersController.signup,
+    'login': usersController.signin,
+    'logout': usersController.logout,
+    'user': usersController.get
 }).notFound(query => {
     // called when there is path specified but
     // there is no route matching

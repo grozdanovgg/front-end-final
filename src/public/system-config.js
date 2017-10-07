@@ -10,12 +10,14 @@ System.config({
 
         // files
         // 'main': './js/app.js',
-        // 'database': './js/data/database.js',
+        'data': './js/data/data.js',
+        'database': './js/data/database.js',
         'templater': './js/utils/template.js',
         'requester': './js/utils/requester.js',
         'homeController': './js/controllers/home.js',
         'blogController': './js/controllers/blog.js',
-        // 'usersController': './js/controllers/users.js',
+        'usersController': './js/controllers/users.js',
+        'normalizer': './js/utils/template-normalizer.js',
 
         // libraries
         'firebaseApp': './node_modules/firebase/firebase-app.js',

@@ -29,16 +29,33 @@ export let Database = (function () {
         }
     }
 
-    function addNewCompany(companyObj) {
-        if (!companyObj.Symbol) {
-            toastr.error('No company symbol passed!');
-            return Promise.reject('No company symbol passed!');
+    // function addNewCompany(companyObj) {
+    //     if (!companyObj.Symbol) {
+    //         toastr.error('No company symbol passed!');
+    //         return Promise.reject('No company symbol passed!');
+    //     } else {
+    //         return dbRef.ref('companies/' + companyObj.Symbol)
+    //             .set(companyObj)
+    //             //.then(success => toastr.success(`Company ${companyObj.Symbol} added/updated`))
+    //             .catch(error => toastr.error(error.message));
+    //     }
+    // }
+
+    function addCategory(categoryName) {
+        if (!categoryName) {
+            toastr.error('No category name passed!');
+            return Promise.reject('No category name passed!');
         } else {
-            return dbRef.ref('companies/' + companyObj.Symbol)
-                .set(companyObj)
-                //.then(success => toastr.success(`Company ${companyObj.Symbol} added/updated`))
+            return dbRef.ref('categories/' + categoryName)
+                .set({ categoryName: categoryName })
                 .catch(error => toastr.error(error.message));
         }
+        // const user = app.auth().currentUser;
+        // if(!user) {
+        //     console.log('No user logged in, yet');
+        //     return;
+        // }
+        // return dbRef.ref
     }
 
     function addNewSymbol(symbol) {
@@ -132,19 +149,19 @@ export let Database = (function () {
 
     let db = {
         addNewUser: addNewUser,
-        addNewCompany: addNewCompany,
-        addNewSymbol: addNewSymbol,
+        // addNewCompany: addNewCompany,
+        // addNewSymbol: addNewSymbol,
         addUserProperty: addUserProperty,
         removeUser: removeUser,
         getUser: getUser,
         getProperty: getProperty,
-        getFavorites: getFavorites,
-        getCompany: getCompany,
-        getSymbol: getSymbol,
-        getAllCompanies: getAllCompanies,
-        getAllSymbols: getAllSymbols,
-        loadCompanies: loadCompanies,
-        loadSymbols: loadSymbols,
+        // getFavorites: getFavorites,
+        // getCompany: getCompany,
+        // getSymbol: getSymbol,
+        // getAllCompanies: getAllCompanies,
+        // getAllSymbols: getAllSymbols,
+        // loadCompanies: loadCompanies,
+        // loadSymbols: loadSymbols,
         app: app
     };
     return db;
