@@ -14,6 +14,7 @@ System.config({
         'templater': './js/utils/template.js',
         'requester': './js/utils/requester.js',
         'homeController': './js/controllers/home.js',
+        'blogController': './js/controllers/blog.js',
         // 'usersController': './js/controllers/users.js',
 
         // libraries

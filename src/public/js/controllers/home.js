@@ -21,6 +21,8 @@ const homeController = {
             .then(() => {
                 const body = $('body').removeClass('background-standard');
                 body.addClass('background-home');
+                const header = $('header').removeClass('header-standard');
+                header.addClass('header-home');
             }
             );
     }
