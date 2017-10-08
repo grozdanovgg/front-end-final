@@ -14,6 +14,8 @@ router.on({
     '/#': () => { router.navigate('home'); },
     'home': homeController.get,
     'blog': blogController.get,
+    'blog/:category': (params) => blogController.get(params),
+    'blog/:category/:post': (params) => blogController.get(params),
     'register': usersController.signup,
     'login': usersController.signin,
     'logout': usersController.logout,

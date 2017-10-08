@@ -28,7 +28,7 @@ const Normalizer = {
                 header.addClass('header-home');
             });
     },
-    standard(templatePath, user) {
+    standard(templatePath, data) {
         const pathArray = templatePath.split('/');
         const mainRoot = pathArray[0];
         const templateName = pathArray[pathArray.length - 1];
@@ -42,7 +42,7 @@ const Normalizer = {
                 $('.active').removeClass('active');
                 $(`#nav-${templateName}`).addClass('active');
 
-                $('#main-root').html(templates[0](user));
+                $('#main-root').html(templates[0](data));
                 $('#carousel-container').html(templates[1]());
                 $('#footer-recent').html(templates[2]());
                 $('#footer-archived').html(templates[3]());

@@ -41,29 +41,82 @@ export let Database = (function () {
     //     }
     // }
 
-    function addCategory(categoryName) {
-        if (!categoryName) {
+    function addCategory(categoryObj) {
+        console.log(categoryObj);
+        if (!categoryObj.href) {
             toastr.error('No category name passed!');
             return Promise.reject('No category name passed!');
         } else {
-            return dbRef.ref('categories/' + categoryName)
-                .set({ categoryName: categoryName })
+            return dbRef.ref('categories/' + categoryObj.href)
+                .set(categoryObj)
+                .then(success => toastr.success(`Category ${categoryObj.href} added/updated`))
                 .catch(error => toastr.error(error.message));
         }
-        // const user = app.auth().currentUser;
-        // if(!user) {
-        //     console.log('No user logged in, yet');
-        //     return;
-        // }
-        // return dbRef.ref
     }
 
-    function addNewSymbol(symbol) {
-        return dbRef.ref('symbols/' + symbol)
-            .set(true)
-            //.then(success => toastr.success(`Symbol ${symbol} added/updated`))
-            .catch(error => toastr.error(error.message));
+    function removeCategory(categoryHref) {
+
+        console.log(categoryHref);
+        return dbRef.ref(`categories/${categoryHref}`)
+            .remove();
     }
+
+    function getCategory(categoryHref) {
+        return dbRef.ref(`categories/${categoryHref}`)
+            .once('value')
+            .then(response => {
+                return response.val();
+            });
+    }
+
+    function getAllCategories() {
+        return dbRef.ref('categories/')
+            .once('value')
+            .then(response => {
+                if (!response.val()) {
+                    return [];
+                }
+                return response.val();
+            });
+    }
+
+    function addPost(postObj, categoryTitle) {
+        console.log(postObj);
+        if (!postObj.title) {
+            toastr.error('No post title passed!');
+            return Promise.reject('No post title passed!');
+        } else {
+            return dbRef.ref('categories/' + categoryTitle + '/' + postObj.title)
+                .set(postObj)
+                .then(success => toastr.success(`Post ${postObj.title} added/updated`))
+                .catch(error => toastr.error(error.message));
+        }
+    }
+
+    // function removePost(postObj) {
+    //     return dbRef.ref('categories/' + category.title)
+    //         .remove();
+    // }
+
+    function getAllPosts(category) {
+        return dbRef.ref(`categories/${category.href}`)
+            .once('value')
+            .then(response => {
+                console.log(response.val());
+                if (!response.val()) {
+                    return [{ title: 'Post1', text: 'Post text 1' }, { title: 'Post2', text: 'Post text 2' }];
+                }
+                return response.val();
+            });
+    }
+
+
+    // function addNewSymbol(symbol) {
+    //     return dbRef.ref('symbols/' + symbol)
+    //         .set(true)
+    //         //.then(success => toastr.success(`Symbol ${symbol} added/updated`))
+    //         .catch(error => toastr.error(error.message));
+    // }
 
     // Use to add favorites in bulk
     function addUserProperty(property, value) {
@@ -79,27 +132,27 @@ export let Database = (function () {
             .catch(error => toastr.error(error.message));
     }
 
-    // Use to edit property
-    // Use to edit property
-    function addFavorite(symbol) {
-        const user = app.auth().currentUser;
-        if (!user) {
-            console.log('No user logged in, yet');
-            return;
-        }
-        return dbRef.ref('users/' + user.uid + '/favorites/' + symbol)
-            .set(symbol);
-    }
+    // // Use to edit property
+    // // Use to edit property
+    // function addFavorite(symbol) {
+    //     const user = app.auth().currentUser;
+    //     if (!user) {
+    //         console.log('No user logged in, yet');
+    //         return;
+    //     }
+    //     return dbRef.ref('users/' + user.uid + '/favorites/' + symbol)
+    //         .set(symbol);
+    // }
 
-    function removeFavorite(symbol) {
-        const user = app.auth().currentUser;
-        if (!user) {
-            console.log('No user logged in, yet');
-            return;
-        }
-        return dbRef.ref('users/' + user.uid + '/favorites/' + symbol)
-            .remove();
-    }
+    // function removeFavorite(symbol) {
+    //     const user = app.auth().currentUser;
+    //     if (!user) {
+    //         console.log('No user logged in, yet');
+    //         return;
+    //     }
+    //     return dbRef.ref('users/' + user.uid + '/favorites/' + symbol)
+    //         .remove();
+    // }
 
     function removeUser(uid) {
         console.log(uid);
@@ -127,25 +180,25 @@ export let Database = (function () {
             .then(response => response.val().property);
     }
 
-    function getCompany(symbol) {
-        return dbRef.ref('companies/' + symbol)
-            .once('value');
-    }
+    // function getCompany(symbol) {
+    //     return dbRef.ref('companies/' + symbol)
+    //         .once('value');
+    // }
 
-    function getSymbol(symbol) {
-        return dbRef.ref('symbols/' + symbol)
-            .once('value');
-    }
+    // function getSymbol(symbol) {
+    //     return dbRef.ref('symbols/' + symbol)
+    //         .once('value');
+    // }
 
-    function getAllCompanies() {
-        return dbRef.ref('companies/')
-            .once('value');
-    }
+    // function getAllCompanies() {
+    //     return dbRef.ref('companies/')
+    //         .once('value');
+    // }
 
-    function getAllSymbols() {
-        return dbRef.ref('symbols/')
-            .once('value');
-    }
+    // function getAllSymbols() {
+    //     return dbRef.ref('symbols/')
+    //         .once('value');
+    // }
 
     let db = {
         addNewUser: addNewUser,
@@ -155,6 +208,11 @@ export let Database = (function () {
         removeUser: removeUser,
         getUser: getUser,
         getProperty: getProperty,
+        addCategory: addCategory,
+        removeCategory: removeCategory,
+        getCategory: getCategory,
+        getAllCategories: getAllCategories,
+        getAllPosts: getAllPosts,
         // getFavorites: getFavorites,
         // getCompany: getCompany,
         // getSymbol: getSymbol,

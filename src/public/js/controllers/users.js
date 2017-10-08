@@ -6,6 +6,7 @@ import { templater } from '../utils/templater.js';
 // import { hashHistory } from '../utils/hasher.js';
 import 'toastr';
 import { Normalizer } from '../utils/template-normalizer.js';
+import { stringToHref } from '../utils/stringToHref.js';
 
 toastr.options = {
     "positionClass": "toast-bottom-center",
@@ -94,10 +95,28 @@ function toggleButtons(user) {
     }
 }
 
+function deleteUser() {
+    const authUser = Database.app.auth().currentUser;
+    const uid = authUser.uid;
+    authUser.delete();
+    Database.removeUser(uid)
+        .then(() => {
+            toastr.warning('User deleted. Redirecting.');
+            location.href = '/#!home';
+        });
+}
+
+
 const usersController = {
     get() {
         const user = Database.app.auth().currentUser;
-        Normalizer.standard('user/user', user)
+
+        Database.getAllCategories()
+            .then((categories) => {
+                console.log(categories);
+            });
+
+        Normalizer.standard('user/user', { user })
             .then(() => {
                 $('#savebutton').on('click', () => {
                     const properties = {
@@ -111,14 +130,31 @@ const usersController = {
                 });
 
                 $('#deletebutton').on('click', () => {
-                    usersController.deleteUser();
+                    deleteUser();
                 });
             })
             .then(() => {
-                const adminName = 'admin@admin.admin';
-                const user = localStorage.getItem('email');
-                if (user === adminName) {
-                    $('#main-root').append($('<button>Add category</button>'));
+                const adminEmail = 'admin@admin.admin';
+                const userEmail = localStorage.getItem('email');
+                if (userEmail === adminEmail) {
+                    templater.get('user/admin-console')
+                        .then(template => {
+                            $('#admin-console').html(template());
+                        })
+                        .then(() => {
+                            $('#add-category-button').on('click', () => {
+                                const categoryObj = {
+                                    title: $('#category-name').val(),
+                                    description: $('#category-description').val(),
+                                    href: stringToHref($('#category-name').val())
+                                };
+                                Database.addCategory(categoryObj);
+                            });
+                            $('#delete-category-button').on('click', () => {
+                                const categoryHref = stringToHref($('#category-name').val());
+                                Database.removeCategory(categoryHref);
+                            });
+                        });
                 }
             })
             .catch(error => toastr.error(error.message));
@@ -157,20 +193,6 @@ const usersController = {
             .catch(error => toastr.error(error.message));
     },
 
-    deleteUser() {
-        const authUser = Database.app.auth().currentUser;
-        const uid = authUser.uid;
-        authUser.delete();
-        Database.removeUser(uid)
-            .then(() => {
-                toastr.warning('User deleted. Redirecting.');
-                location.href = '/#!home';
-            });
-    },
-
-    updateUser(user, properties) {
-        user.updateProfile(properties);
-    }
 };
 
 const utils = {
