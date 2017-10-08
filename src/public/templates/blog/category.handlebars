@@ -1,1 +1,14 @@
-<h1>Category will be here</h1>
+<p>Home > {{category.title}}</p>
+
+
+<div class="posts-container">
+
+    {{#each posts as |value key|}}
+
+    <div class="post-card">
+        <h1 class="post-title">{{value.title}}</h1>
+        <h5 class="post-sub-title">Posted by {{value.author}} in {{value.categoryHref}} on {{formatDate value.date "short"}} | 99 Comments</h5>
+    </div>
+    {{/each}}
+
+</div>

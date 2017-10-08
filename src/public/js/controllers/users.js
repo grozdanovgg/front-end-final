@@ -96,7 +96,7 @@ function toggleButtons(user) {
 }
 
 function deleteUser() {
-    const authUser = Database.app.auth().currentUser;
+    // const authUser = Database.app.auth().currentUser;
     const uid = authUser.uid;
     authUser.delete();
     Database.removeUser(uid)
@@ -123,7 +123,7 @@ const usersController = {
                         displayName: $('#nameinput').val(),
                         email: $('#emailnput').val(),
                         password: $('#passwordinput').val()
-                    }
+                    };
                     const authUser = Database.app.auth().currentUser;
                     authUser.updateProfile(properties)
                         .then(() => toastr.success('User updated'));
@@ -139,26 +139,41 @@ const usersController = {
                 if (userEmail === adminEmail) {
                     templater.get('user/admin-console')
                         .then(template => {
-
                             Database.getAllCategories()
                                 .then((categoriesObj) => {
                                     const categoriesNames = Object.keys(categoriesObj);
                                     $('#admin-console').html(template({ categoriesNames }));
+                                })
+                                .then(() => {
+                                    $('#add-category-button').on('click', () => {
+                                        const categoryObj = {
+                                            title: $('#category-name').val(),
+                                            description: $('#category-description').val(),
+                                            href: stringToHref($('#category-name').val())
+                                        };
+                                        Database.addCategory(categoryObj);
+                                    });
+                                    $('#delete-category-button').on('click', () => {
+                                        const categoryHref = stringToHref($('#category-name').val());
+                                        Database.removeCategory(categoryHref);
+                                    });
+                                    $('#add-post-button').on('click', () => {
+                                        const selectedOption = $('#category-selector')[0].selectedOptions[0].value;
+                                        const authUser = Database.app.auth().currentUser;
+
+                                        const postObj = {
+                                            title: $('#post-title').val(),
+                                            text: $('#post-text').val(),
+                                            href: stringToHref($('#post-title').val()),
+                                            categoryHref: selectedOption,
+                                            author: authUser.displayName,
+                                            date: Date.now()
+                                        };
+
+                                        // TO BE CORRECTED RIGHT
+                                        Database.addPost(postObj, postObj.categoryHref);
+                                    });
                                 });
-                        })
-                        .then(() => {
-                            $('#add-category-button').on('click', () => {
-                                const categoryObj = {
-                                    title: $('#category-name').val(),
-                                    description: $('#category-description').val(),
-                                    href: stringToHref($('#category-name').val())
-                                };
-                                Database.addCategory(categoryObj);
-                            });
-                            $('#delete-category-button').on('click', () => {
-                                const categoryHref = stringToHref($('#category-name').val());
-                                Database.removeCategory(categoryHref);
-                            });
                         });
                 }
             })

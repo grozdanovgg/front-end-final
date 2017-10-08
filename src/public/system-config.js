@@ -25,6 +25,7 @@ System.config({
         'firebaseAuth': './node_modules/firebase/firebase-auth.js',
         'jquery': './node_modules/jquery/dist/jquery.min.js',
         'navigo': './node_modules/navigo/lib/navigo.min.js',
+        'moment': './node_modules/moment/min/moment-with-locales.min.js',
         // 'tablesorter': './node_modules/tablesorter/dist/js/jquery.tablesorter.min.js',
         // 'bloodhound': './node_modules/typeahead.js-jspm/dist/bloodhound.min.js',
         'toastr': './node_modules/toastr/build/toastr.min.js'

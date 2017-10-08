@@ -83,13 +83,13 @@ export let Database = (function () {
 
     function addPost(postObj, categoryHref) {
         console.log(postObj);
-        if (!postObj.title) {
+        if (!postObj.href) {
             toastr.error('No post title passed!');
             return Promise.reject('No post title passed!');
         } else {
-            return dbRef.ref(`categories/${categoryHref}/posts/${postObj.title}`)
+            return dbRef.ref(`categories/${categoryHref}/posts/${postObj.href}`)
                 .set(postObj)
-                .then(success => toastr.success(`Post ${postObj.title} added/updated`))
+                .then(success => toastr.success(`Post ${postObj.href} added/updated`))
                 .catch(error => toastr.error(error.message));
         }
     }
@@ -99,8 +99,8 @@ export let Database = (function () {
     //         .remove();
     // }
 
-    function getAllPosts(category) {
-        return dbRef.ref(`categories/${category.href}`).child('posts')
+    function getAllPosts(categoryHref) {
+        return dbRef.ref(`categories/${categoryHref}`).child('posts')
             .once('value')
             .then(response => {
                 if (!response.val()) {
@@ -213,6 +213,7 @@ export let Database = (function () {
         removeCategory: removeCategory,
         getCategory: getCategory,
         getAllCategories: getAllCategories,
+        addPost: addPost,
         getAllPosts: getAllPosts,
         // getFavorites: getFavorites,
         // getCompany: getCompany,

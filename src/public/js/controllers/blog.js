@@ -1,9 +1,10 @@
 import $ from 'jquery';
 import { templater } from '../utils/templater.js';
 import { Normalizer } from '../utils/template-normalizer.js';
-import { Database } from 'database';
+import { Database } from '../data/database.js';
 import { Data } from 'data';
 import { stringToHref } from '../utils/stringToHref.js';
+import { dateFormatter } from '../utils/helper-date-formatter.js';
 
 const blogController = {
     get(params) {
@@ -11,15 +12,16 @@ const blogController = {
         if (params) { // Post
             if (params.category && params.post) {
             } else { // Category
-                Database.getCategory(params.category)
-                    .then(categoryHref => {
-                        const data = Database.getAllPosts(categoryHref)
-                            .then((posts) => {
-                                console.log(posts);
-                            });
-
-
-                        Normalizer.standard('blog/category', { user, data });
+                Promise.all([
+                    Database.getAllPosts(params.category),
+                    Database.getCategory(params.category),
+                ])
+                    .then((data) => {
+                        const posts = data[0];
+                        const category = data[1];
+                        // Call helper to be avalable in template
+                        dateFormatter.do();
+                        Normalizer.standard('blog/category', { user, posts, category });
                     });
             }
         }
