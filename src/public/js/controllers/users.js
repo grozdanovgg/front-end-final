@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { Data } from 'data';
 // import { SideBar } from '../data/sidebarClass.js';
-import { Database } from 'database';
+import { Database } from '../data/database.js';
 import { templater } from '../utils/templater.js';
 // import { hashHistory } from '../utils/hasher.js';
 import 'toastr';
@@ -139,7 +139,12 @@ const usersController = {
                 if (userEmail === adminEmail) {
                     templater.get('user/admin-console')
                         .then(template => {
-                            $('#admin-console').html(template());
+
+                            Database.getAllCategories()
+                                .then((categoriesObj) => {
+                                    const categoriesNames = Object.keys(categoriesObj);
+                                    $('#admin-console').html(template({ categoriesNames }));
+                                });
                         })
                         .then(() => {
                             $('#add-category-button').on('click', () => {

@@ -76,17 +76,18 @@ export let Database = (function () {
                 if (!response.val()) {
                     return [];
                 }
+                console.log(response.val());
                 return response.val();
             });
     }
 
-    function addPost(postObj, categoryTitle) {
+    function addPost(postObj, categoryHref) {
         console.log(postObj);
         if (!postObj.title) {
             toastr.error('No post title passed!');
             return Promise.reject('No post title passed!');
         } else {
-            return dbRef.ref('categories/' + categoryTitle + '/' + postObj.title)
+            return dbRef.ref(`categories/${categoryHref}/posts/${postObj.title}`)
                 .set(postObj)
                 .then(success => toastr.success(`Post ${postObj.title} added/updated`))
                 .catch(error => toastr.error(error.message));
@@ -99,13 +100,13 @@ export let Database = (function () {
     // }
 
     function getAllPosts(category) {
-        return dbRef.ref(`categories/${category.href}`)
+        return dbRef.ref(`categories/${category.href}`).child('posts')
             .once('value')
             .then(response => {
-                console.log(response.val());
                 if (!response.val()) {
                     return [{ title: 'Post1', text: 'Post text 1' }, { title: 'Post2', text: 'Post text 2' }];
                 }
+                console.log(response.val());
                 return response.val();
             });
     }

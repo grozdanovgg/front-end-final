@@ -48,9 +48,9 @@
 
         <div class="form-group">
             <select class="form-control">
-                <option>Default select</option>
-                <option>Default select</option>
-                <option>Default select</option>
+                {{#each categoriesNames}}
+                <option>{{this}}</option>
+                {{/each}}
             </select>
         </div>
 

@@ -14,7 +14,10 @@ const blogController = {
                 Database.getCategory(params.category)
                     .then(categoryHref => {
                         const data = Database.getAllPosts(categoryHref)
-                        // Here I have to fetch the posts for the category and give it to the template
+                            .then((posts) => {
+                                console.log(posts);
+                            });
+
 
                         Normalizer.standard('blog/category', { user, data });
                     });
