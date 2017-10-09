@@ -1,26 +1,34 @@
-<a href="#!blog">Home</a>
-<span>> {{category.title}}</span>
+<div class="pl-1 pb-4 pt-4 blog-navigation">
+    <a href="#!blog">Home</a>
+    <span class="blog-nav-active">&#187 {{category.title}}</span>
+</div>
 
 <div class="row">
 
-    <ul class="col-lg-8 posts-container list-unstyled">
+    <ul class="no-side-padding col-lg-8 posts-container list-unstyled">
 
         {{#each posts as |value key|}}
 
-        <li class="post-card">
-            <h1 class="post-title">{{value.title}}</h1>
-            <h5 class="post-sub-title">Posted by {{value.author}} in {{value.categoryHref}} on {{formatDate value.date "short"}} | Comments</h5>
+        <li class="post-card mb-5">
+            <h1 class="post-title mb-3">{{value.title}}</h1>
+            <h5 class="post-sub-title mb-2">
+                Posted by
+                <span>{{value.author}}</span>
+                in
+                <span>{{value.categoryHref}}</span>
+                on {{formatDate value.date "short"}} | Comments
+            </h5>
             <div class="container">
-                <img class="float-left" src="../../img/post-img.png" alt="post-image">
-                <p>{{stringTrim value.text 630}}...</p>
+                <img class="post-image float-left" src="../../img/post-img.png" alt="post-image">
+                <p>{{stringTrim value.text 680}}...</p>
             </div>
-            <button class="button-1 p-1 mr-4 button-read-more">Read more</button>
+            <a class="button-1 p-1 mr-4 button-read-more" href="#!blog/{{value.categoryHref}}/{{value.href}}">Read more</a>
         </li>
         {{/each}}
 
     </ul>
-    <div class="col-lg-1" id="wrap">
-        <div id="gradient"></div>
+    <div class="col-lg-1" id="wrap-vertical">
+        <div id="gradient-vertical"></div>
     </div>
     <div class="col">
         <div>Recent comments</div>

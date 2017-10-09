@@ -145,6 +145,7 @@ const usersController = {
                                     $('#admin-console').html(template({ categoriesNames }));
                                 })
                                 .then(() => {
+                                    const authUser = Database.app.auth().currentUser;
                                     $('#add-category-button').on('click', () => {
                                         const categoryObj = {
                                             title: $('#category-name').val(),
@@ -159,8 +160,6 @@ const usersController = {
                                     });
                                     $('#add-post-button').on('click', () => {
                                         const selectedOption = $('#category-selector')[0].selectedOptions[0].value;
-                                        const authUser = Database.app.auth().currentUser;
-
                                         const postObj = {
                                             title: $('#post-title').val(),
                                             text: $('#post-text').val(),
@@ -170,8 +169,18 @@ const usersController = {
                                             date: Date.now()
                                         };
 
-                                        // TO BE CORRECTED RIGHT
                                         Database.addPost(postObj, postObj.categoryHref);
+                                    });
+                                    $('#add-comment-button').on('click', () => {
+                                        const date = new Date();
+                                        const commentObj = {
+                                            text: $('#post-text').val(),
+                                            href: date,
+                                            author: authUser.displayName,
+                                            date: date,
+                                            postRef
+                                        };
+                                        Database.addComment(commentObj);
                                     });
                                 });
                         });

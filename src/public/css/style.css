@@ -4,7 +4,6 @@
     font-family: "GeorgiaItalic";
     src:url("../fonts/GeorgiaItalic.ttf");
 }
-
 body {
     width: 100%;
     background-color: yellowgreen;
@@ -136,6 +135,11 @@ p {
     font-family:'Droid Sans', sans-serif;
     text-shadow: 1px 1px 0px white;     
     line-height: 1.8;
+}
+
+.no-side-padding{
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .logo{
     height:4em;
@@ -284,19 +288,45 @@ p {
     min-height: 300px;
 }
 
+#wrap-horisontal{
+    position: relative;
+    left:8px;
+    overflow:hidden;
+    width:100%;
+    height:8px;
+    margin:0px;
+}
+#gradient-horisontal{
+    left:8px;
+    
+    height:8px;
+    width:100%;
+    /* background-color: red; */
+    background-image: -webkit-radial-gradient(
+        center right,
+        ellipse cover, 
+        rgb(189, 189, 189) 0%,
+        rgb(189, 189, 189) 19%,
+        rgba(201, 201, 201, 0) 70%,
+        rgba(201, 201, 201,0) 100%
+        );
+    background: -moz-radial-gradient(center, ellipse cover,  rgb(189, 189, 189) 0%, rgb(189, 189, 189) 19%, rgba(201, 201, 201, 0) 70%, rgba(201, 201, 201, 0) 100%); /* FF3.6+ */
+    background: -o-radial-gradient(center, ellipse cover,  rgb(189, 189, 189) 0%, rgb(189, 189, 189) 19%,rgba(201, 201, 201, 0) 70%, rgba(201, 201, 201, 0) 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  rgb(189, 189, 189) 0%, rgb(189, 189, 189) 19%,rgba(201, 201, 201, 0) 70%, rgba(201, 201, 201, 0) 100%); /* IE10+ */
+    background: radial-gradient(center, ellipse cover,  rgb(189, 189, 189) 0%, rgb(189, 189, 189) 19%,rgba(201, 201, 201, 0) 70%, rgba(201, 201, 201, 0) 100%); /* W3C */
 
-#wrap{
+    border-bottom: solid 1px white;
+}
+#wrap-vertical{
+    padding: 0px;
     overflow:hidden;
     margin:0;
     height:auto;
     width:8px;
 }
-
-
-#gradient{
+#gradient-vertical{
     height:100%;
     width:8px;
-    margin:auto;
     margin-top:-11px;
     /* background-color: red; */
     background-image: -webkit-radial-gradient(
@@ -315,7 +345,50 @@ p {
     border-right: solid 1px white;
 }
 
+.post-title {
+    font-size: 30px;
+    color: #758b8d;
+}
 
+.post-sub-title {
+    font-family: GeorgiaItalic;
+    font-size: 13px;
+    font-style: italic;
+    color:#a2a2a2;
+    text-shadow: 1px 0px 0px white;
+}
+.post-sub-title span{
+    color: #797979;
+}
+
+.post-card p {
+    font-family:'Droid Sans', sans-serif;
+    font-size: 12px;
+    color: #8c8a8a;
+    text-shadow: 1px 0px 0px white;
+}
+.post-card .container {
+    padding-left: 0px;
+}
+
+.post-image {
+    padding-right: 20px;
+}
+
+.blog-navigation {
+    font-family:'Droid Sans', sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    color: #b0afaf;
+}
+
+.blog-navigation a{
+    color: #b0afaf;
+}
+
+.blog-navigation .blog-nav-active{
+    color: #758b8d;
+}
 
 
 

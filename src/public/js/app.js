@@ -25,3 +25,4 @@ router.on({
     // there is no route matching
     toastr.info(`Router couldn't find the path: ${query}`);
 }).resolve();
+

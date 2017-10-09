@@ -94,6 +94,15 @@ export let Database = (function () {
         }
     }
 
+    function addComment(commentObj, ref) {
+        console.log(commentObj);
+        console.log(ref);
+        return dbRef.ref(`categories/${ref}/comments/${commentObj.href}`)
+            .set(commentObj)
+            .then(success => toastr.success(`Comment ${postObj.href} added`))
+            .catch(error => toastr.error(error.message));
+    }
+
     // function removePost(postObj) {
     //     return dbRef.ref('categories/' + category.title)
     //         .remove();
@@ -215,6 +224,7 @@ export let Database = (function () {
         getAllCategories: getAllCategories,
         addPost: addPost,
         getAllPosts: getAllPosts,
+        addComment: addComment,
         // getFavorites: getFavorites,
         // getCompany: getCompany,
         // getSymbol: getSymbol,

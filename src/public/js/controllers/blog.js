@@ -10,24 +10,37 @@ import { stringTrim } from '../utils/helper-string-trim.js';
 const blogController = {
     get(params) {
         const user = Database.app.auth().currentUser;
-        if (params) { // Post
-            if (params.category && params.post) {
-            } else { // Category
-                Promise.all([
-                    Database.getAllPosts(params.category),
-                    Database.getCategory(params.category),
-                ])
-                    .then((data) => {
-                        const posts = data[0];
-                        const category = data[1];
+        if (params) { // Common
+            const data = Promise.all([
+                Database.getAllPosts(params.category),
+                Database.getCategory(params.category),
+            ]);
+            if (params.category && params.post) { // Post
+                data.then((data) => {
+                    const posts = data[0];
+                    const category = data[1];
 
-                        console.log(posts);
-                        console.log(category);
-                        // Call helper to be avalable in template
-                        dateFormatter.do();
-                        stringTrim.do();
-                        Normalizer.standard('blog/category', { user, posts, category });
-                    });
+                    const currentPost = posts[params.post];
+                    console.log(posts);
+                    console.log(params.post);
+                    console.log(currentPost);
+                    // Call helper to be avalable in template
+                    dateFormatter.do();
+                    stringTrim.do();
+                    Normalizer.standard('blog/post', { user, currentPost, category });
+                });
+            } else { // Category
+                data.then((data) => {
+                    const posts = data[0];
+                    const category = data[1];
+
+                    console.log(posts);
+                    console.log(category);
+                    // Call helper to be avalable in template
+                    dateFormatter.do();
+                    stringTrim.do();
+                    Normalizer.standard('blog/category', { user, posts, category });
+                });
             }
         }
         else { // All Categories
