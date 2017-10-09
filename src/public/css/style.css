@@ -12,8 +12,6 @@ body {
     color: gray;
 }
 .background-standard {
-    /* background-color: green; */
-    /* height: 15em !important; */
     background: 
     linear-gradient(to top, #131a25,#0d131b),    
     url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAM0lEQVQoU2NkwAQNDAwMIIwMGhjRBbApAokhK8RqEkwjTCFeRSBbQQoJKoIpRPfOkPUMAMG7EwvScTT3AAAAAElFTkSuQmCC),
@@ -32,14 +30,14 @@ body {
     
     url(../img/background-top-base.png),
     linear-gradient(to top, #131923, #2b415a);
-    background-position: center 21.5em ,bottom center, top center,top center,bottom+63px center;
+    background-position: center 445px ,bottom center, top center,top center,bottom+63px center;
     background-repeat: no-repeat,no-repeat,repeat,no-repeat,no-repeat;
     background-size: auto,100% 63px,auto,auto ,  100% auto;
 }
 header{
     max-width: 960px;
     margin:auto;
-    height: 560px !important;
+    height: 660px !important;
 }
 #main-root{
     min-height: 300px;
@@ -142,7 +140,7 @@ p {
     padding-right: 0px;
 }
 .logo{
-    height:4em;
+    height:64px;
     align-content: center;
 }
 .logo-footer{
@@ -160,8 +158,9 @@ p {
 }
 
 .slogan{
+    font-size: 16px;
     color: #77808d !important;
-    padding: 1em;
+    padding: 16px;
 }
 
 .text-align-left{
@@ -229,7 +228,7 @@ p {
 }
 .call-to-action-row{
     position: relative;
-    top: -1.7em;    
+    top: -27px;    
 }
 .bubble {
     position: relative;
@@ -402,7 +401,7 @@ p {
     }
 
     .background-home {
-        background-position: center 21.5em ,bottom center, top center,top center,bottom+63px center;
+        background-position: center 345px ,bottom center, top center,top center,bottom+63px center;
     }
     .background-standard{
         background-position: bottom center,top center,top center,bottom+63px center;
