@@ -9,12 +9,9 @@ const DateFormats = {
 const dateFormatter = {
     do() {
         Handlebars.registerHelper("formatDate", function (datetime, format) {
-            console.log(moment)
             if (moment) {
                 // can use other formats like 'lll' too
                 format = DateFormats[format] || format;
-
-                console.log(moment(datetime).format(format));
                 return moment(datetime).format(format);
             }
             else {

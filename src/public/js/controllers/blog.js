@@ -5,6 +5,7 @@ import { Database } from '../data/database.js';
 import { Data } from 'data';
 import { stringToHref } from '../utils/stringToHref.js';
 import { dateFormatter } from '../utils/helper-date-formatter.js';
+import { stringTrim } from '../utils/helper-string-trim.js';
 
 const blogController = {
     get(params) {
@@ -19,8 +20,12 @@ const blogController = {
                     .then((data) => {
                         const posts = data[0];
                         const category = data[1];
+
+                        console.log(posts);
+                        console.log(category);
                         // Call helper to be avalable in template
                         dateFormatter.do();
+                        stringTrim.do();
                         Normalizer.standard('blog/category', { user, posts, category });
                     });
             }

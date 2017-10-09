@@ -278,7 +278,45 @@ p {
     width: 800px;
     height: 500px;
     margin-left: -150px;
-  }
+}
+
+.post-card{
+    min-height: 300px;
+}
+
+
+#wrap{
+    overflow:hidden;
+    margin:0;
+    height:auto;
+    width:8px;
+}
+
+
+#gradient{
+    height:100%;
+    width:8px;
+    margin:auto;
+    margin-top:-11px;
+    /* background-color: red; */
+    background-image: -webkit-radial-gradient(
+        center right,
+        ellipse cover, 
+        rgb(189, 189, 189) 0%,
+        rgb(189, 189, 189) 19%,
+        rgba(201, 201, 201, 0) 70%,
+        rgba(201, 201, 201,0) 100%
+        );
+    background: -moz-radial-gradient(center, ellipse cover,  rgb(189, 189, 189) 0%, rgb(189, 189, 189) 19%, rgba(201, 201, 201, 0) 70%, rgba(201, 201, 201, 0) 100%); /* FF3.6+ */
+    background: -o-radial-gradient(center, ellipse cover,  rgb(189, 189, 189) 0%, rgb(189, 189, 189) 19%,rgba(201, 201, 201, 0) 70%, rgba(201, 201, 201, 0) 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  rgb(189, 189, 189) 0%, rgb(189, 189, 189) 19%,rgba(201, 201, 201, 0) 70%, rgba(201, 201, 201, 0) 100%); /* IE10+ */
+    background: radial-gradient(center, ellipse cover,  rgb(189, 189, 189) 0%, rgb(189, 189, 189) 19%,rgba(201, 201, 201, 0) 70%, rgba(201, 201, 201, 0) 100%); /* W3C */
+
+    border-right: solid 1px white;
+}
+
+
+
 
 
 

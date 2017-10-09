@@ -43,7 +43,7 @@ const Normalizer = {
                 $(`#nav-${templateName}`).addClass('active');
 
                 $('#main-root').html(templates[0](data));
-                $('#carousel-container').html(templates[1]());
+                $('#carousel-container').html(templates[1](data));
                 $('#footer-recent').html(templates[2]());
                 $('#footer-archived').html(templates[3]());
             })
