@@ -1,5 +1,6 @@
 /* Carousel base class */
 .carousel {
+  padding-top:90px;
   z-index: 2;
 }
 /* Since positioning the image, we need to help out the caption */
