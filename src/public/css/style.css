@@ -188,7 +188,7 @@ p {
 }
 
 .call-to-action-button{
-    height: 52px;
+    height: auto;
     width: 237px;
     text-decoration: none;
     text-align:center; 
@@ -428,6 +428,10 @@ p {
         padding-left: 2em;
         padding-right: 2em;
         padding-bottom: 1em;
+    }
+    .call-to-action-button{
+        height: 52px;
+        width: 237px;
     }
     .copyright{
         display: inline;

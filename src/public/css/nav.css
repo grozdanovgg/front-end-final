@@ -153,11 +153,9 @@
   #menu-bar {
     height: 40px;    
   }
-
-
-.navbar-collapse{
-  margin-top:0px;
-}
+  .navbar-collapse{
+    margin-top:0px;
+  }
 }
 
 
