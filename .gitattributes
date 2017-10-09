@@ -2,6 +2,8 @@
 
 *.svg text eol=lf
 
+*.otf binary
+*.svg binary
 *.eot binary
 *.ttf binary
 *.woff binary
