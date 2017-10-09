@@ -1,6 +1,6 @@
 
 .navbar-toggler-wrap {
-  position: relative;
+  position: absolute;
   left: 80%;
 }
 .navbar-light .navbar-toggler  {
@@ -62,7 +62,16 @@
 }
 
 .nav-link{
+  padding: 8px;
   white-space:nowrap;
+}
+.navbar-expand-md .navbar-nav .nav-link{
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.navbar-collapse{
+  margin-top:50px;
 }
 
 
@@ -136,13 +145,19 @@
 @media screen and (min-width: 960px) {
 
   .navbar{
-    padding-right: 0rem;
+    padding-left: 16px;
+    padding-right: 0px;
     position: relative;
     top: none;
   }
   #menu-bar {
     height: 40px;    
   }
+
+
+.navbar-collapse{
+  margin-top:0px;
+}
 }
 
 

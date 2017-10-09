@@ -144,7 +144,7 @@ p {
     padding-right: 0px;
 }
 .logo{
-    height:64px;
+    max-height:64px;
     align-content: center;
 }
 .logo-footer{
@@ -402,6 +402,12 @@ p {
     }
     .header-standard{
         height: 360px !important;
+    }
+
+    .logo{
+        height: auto;
+        width:100%;
+        align-content: center;
     }
 
     .background-home {
