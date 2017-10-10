@@ -11,15 +11,13 @@ export function refreshComments(user, category, currentPost) {
                     $('#add-comment-button').on('click', () => {
                         const authUser = Database.app.auth().currentUser;
                         const date = Date.now();
-                        console.log('DATE: ' + date);
                         const commentObj = {
                             text: $('#post-text').val(),
                             href: date,
                             author: authUser.displayName,
                             date: date,
-                            post: currentPost
+                            postHref: currentPost.href
                         };
-                        console.log(commentObj);
                         Database.addComment(commentObj, currentPost);
                         refreshComments(user, category, currentPost);
                     });

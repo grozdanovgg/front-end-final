@@ -34,10 +34,15 @@ body {
     background-repeat: no-repeat,no-repeat,repeat,no-repeat,no-repeat;
     background-size: auto,100% 63px,auto,auto ,  100% auto;
 }
-header{
+.header-home{
     max-width: 960px;
     margin:auto;
-    height: 660px !important;
+    height: 560px !important;
+}
+.header-standard{
+    max-width: 960px;
+    margin:auto;
+    height: 450px !important;
 }
 #main-root{
     min-height: 300px;

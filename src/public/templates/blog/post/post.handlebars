@@ -11,7 +11,7 @@
             <h1 class="post-title mb-3">{{currentPost.title}}</h1>
             <div class="container">
                 <img class="post-image float-left" src="../../img/post-img.png" alt="post-image">
-                <p>{{currentPost.text}}...</p>
+                <p>{{currentPost.text}}</p>
             </div>
         </div>
 
@@ -71,39 +71,3 @@
         <div>Recent posts</div>
     </div>
 </div>
-
-{{!--
-<div class="row">
-
-    <ul class="no-side-padding col-lg-8 posts-container list-unstyled">
-
-        {{#each posts as |value key|}}
-
-        <li class="post-card mb-5">
-            <h1 class="post-title mb-3">{{value.title}}</h1>
-            <h5 class="post-sub-title mb-2">
-                Posted by
-                <span>{{value.author}}</span>
-                in
-                <span>{{value.categoryHref}}</span>
-                on {{formatDate value.date "short"}} | Comments
-            </h5>
-            <div class="container">
-                <img class="post-image float-left" src="../../img/post-img.png" alt="post-image">
-                <p>{{stringTrim value.text 680}}...</p>
-            </div>
-            <a class="button-1 p-1 mr-4 button-read-more" href="#!blog/{{value.categoryHref}}/{{value.href}}">Read more</a>
-        </li>
-        {{/each}}
-
-    </ul>
-    <div class="col-lg-1" id="wrap">
-        <div id="gradient"></div>
-    </div>
-    <div class="col">
-        <div>Recent comments</div>
-        <div>Archives</div>
-        <div>Recent posts</div>
-    </div>
-
-</div> --}}

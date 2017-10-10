@@ -14,7 +14,7 @@ export let Data = (function Data() {
             localStorage.setItem(LOCALSTORAGE_USERTOKEN_KEY, user.Yd);
             localStorage.setItem(LOCALSTORAGE_DISPLAYNAME_KEY, user.displayName);
         }
-    }
+    };
 
 
     return dataObj;

@@ -1,8 +1,6 @@
 import * as firebase from 'firebaseApp';
 import 'firebaseAuth';
 import 'firebaseDb';
-import { sortByObjKey } from '../utils/sort-obj-by-key.js';
-
 export let Database = (function () {
     const config = {
         apiKey: "AIzaSyBLuZZrWSV6mrJOtQ-itrI0pcZgmZ1Rk7k",
@@ -76,6 +74,8 @@ export let Database = (function () {
             toastr.error('No post title passed!');
             return Promise.reject('No post title passed!');
         } else {
+            dbRef.ref(`recent-posts/${postObj.href}`)
+                .set(postObj);
             return dbRef.ref(`categories/${categoryHref}/posts/${postObj.href}`)
                 .set(postObj)
                 .then(success => toastr.success(`Post ${postObj.href} added/updated`))
@@ -86,16 +86,22 @@ export let Database = (function () {
         return dbRef.ref(`categories/${categoryHref}/posts`)
             .once('value')
             .then(response => {
-                const postsObj = response.val();
-                console.log(postsObj);
-                const result = sortByObjKey(postsObj, 'date', 'descending');
+                return response.val();
+            });
+    }
 
-                return result;
-                // return response.val();
+    function getRecentPosts() {
+        return dbRef.ref('recent-posts')
+            .once('value')
+            .then(response => {
+                return response.val();
             });
     }
 
     function addComment(commentObj, postObj) {
+        console.log(commentObj);
+        console.log(postObj);
+
         return dbRef.ref(`categories/${postObj.categoryHref}/posts/${postObj.href}/comments/${commentObj.href}`)
             .set(commentObj)
             .then(success => toastr.success(`Comment ${postObj.href} added`))

@@ -1,5 +1,6 @@
 
 .navbar-toggler-wrap {
+  top:5%;
   position: absolute;
   left: 80%;
 }
@@ -143,6 +144,10 @@
 }
 
 @media screen and (min-width: 960px) {
+  .navbar-toggler-wrap {
+    position: absolute;
+    left: 80%;
+  }
 
   .navbar{
     padding-left: 16px;

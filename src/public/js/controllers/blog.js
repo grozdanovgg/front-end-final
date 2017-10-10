@@ -9,6 +9,8 @@ import { stringTrim } from '../utils/helper-string-trim.js';
 import { lengthOfObject } from '../utils/helper-length-of-object.js';
 import { findObjByHref } from '../utils/find-obj-by-href.js';
 import { refreshComments } from '../utils/comments-refresh.js';
+import { sortByObjKey } from '../utils/sort-obj-by-key.js';
+
 
 const blogController = {
     get(params) {
@@ -24,9 +26,12 @@ const blogController = {
             lengthOfObject.do();
             if (params.category && params.post) { // Post
                 data.then((data) => {
-                    const posts = data[0];
+                    // sortByObjKey(posts, 'date', 'descending')
+                    const postsObj = data[0];
+                    const posts = sortByObjKey(postsObj, 'date', 'descending')
                     const category = data[1];
-                    const currentPost = findObjByHref(params.post, posts);
+                    // const currentPost = findObjByHref(params.post, posts);
+                    const currentPost = postsObj[params.post];
 
                     refreshComments(user, category, currentPost);
                 });
