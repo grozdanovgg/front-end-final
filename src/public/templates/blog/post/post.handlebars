@@ -20,23 +20,25 @@
         </div>
 
         {{!-- COMMENTS --}}
-        <div clas="comments-container">
-            <h1>{{lengthOfObject comments}}</h1>
+        <div class="comments-container mt-4">
+            <h1 class="mb-4">{{lengthOfObject comments}}</h1>
             <ul class="comments no-side-padding list-unstyled">
                 {{#each comments}}
-                <li class="media">
-                    <img class="d-flex mr-3" src="../../img/placeholder-66-66.png" alt="comment-author-image">
-                    <div class="media-body">
-                        <h2>{{this.author}}
-                            <span>| {{formatDate this.date "short"}}</span>
-                        </h2>
-                        <p>{{this.text}}</p>
+                <div class="comment-bubble">
+                    <li class="media">
+                        <img class="d-flex mr-3" src="../../img/placeholder-66-66.png" alt="comment-author-image">
+                        <div class="media-body">
+                            <h2>{{this.author}}
+                                <span>| {{formatDate this.date "short"}}</span>
+                            </h2>
+                            <p>{{this.text}}</p>
 
-                        {{!-- If Comment is too long, then show this button!!! --}}
-                        <a class="button-1 p-1 button-read-more" href="#!blog/{{currentPost.categoryHref}}/cooment.href/">Read more</a>
-                    </div>
-                </li>
-                <div class="comment-bubble-arrow"></div>
+                            {{!-- If Comment is too long, then show this button!!! --}}
+                            <a class="button-1 p-1 button-read-more" href="#!blog/{{currentPost.categoryHref}}/cooment.href/">Read more</a>
+                        </div>
+                    </li>
+                    <div class="comment-bubble-arrow"></div>
+                </div>
                 {{/each}}
             </ul>
 
