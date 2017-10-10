@@ -134,9 +134,10 @@ h3{
     font-size: 20px;
 }
 p {
+    font-size: 12px;
     font-family:'Droid Sans', sans-serif;
     text-shadow: 1px 1px 0px white;     
-    line-height: 1.8;
+    line-height: 22px;
 }
 
 .no-side-padding{
@@ -159,6 +160,20 @@ p {
     color: white;
     font-size: 12px;
     text-shadow: 1px 1px 1px black;
+}
+
+.standard-header-container{
+    height: 240px;
+    display: table-cell;
+    vertical-align: bottom;
+}
+.standart-main-title{
+    color: white;
+    text-shadow: 1px 0px 1px black;
+}
+.standart-sub-title{
+    color: #778292;
+    text-shadow: 1px 0px 1px black;    
 }
 
 .slogan{
@@ -212,6 +227,7 @@ p {
     filter: dropshadow(color=#292929, offx=1, offy=1); 
 }
 .button-1 {
+    z-index: 2;
     width: 77px;
     height: 22px;
     line-height: 15px;
@@ -225,6 +241,7 @@ p {
     padding: 10px 20px 10px 20px;
     border: solid #c4c4c4 1px;
     text-decoration: none;
+    text-align: center;
 }
 
 .text-color-dark-blue-green {
@@ -255,6 +272,12 @@ p {
     bottom: -20px;
     left: 45%;
 }
+
+
+  
+
+
+
 .button:hover {
     background: #d6d6d6;
     text-decoration: none;
@@ -393,6 +416,37 @@ p {
     color: #758b8d;
 }
 
+.media {
+    z-index:2; 
+    background-color: white;
+    padding: 20px;
+    margin: 0px 30px 30px 0px;
+    border-radius: 6px;
+}
+.media h2 {
+    color:#565656;
+}
+.media h2 span{
+    font-size: 18px;
+    color: #b6b5b5;
+}
+.comment-bubble-arrow {
+    z-index: 1;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    content: "";
+    bottom:60px;
+    left: 80%;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: white;
+    -webkit-transform: rotateZ(-89deg)   skewX(-45deg);
+    transform: rotateZ(-89deg)   skewX(-45deg);
+  }
 
 
 

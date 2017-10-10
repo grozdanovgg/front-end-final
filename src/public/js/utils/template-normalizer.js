@@ -29,12 +29,19 @@ const Normalizer = {
             });
     },
     standard(templatePath, data) {
+        console.log(templatePath);
         const pathArray = templatePath.split('/');
-        const mainRoot = pathArray[0];
+        const headerName = pathArray[pathArray.length - 2];
+        let mainRoot = '';
+
+        for (let i = 0; i < pathArray.length - 1; i += 1) {
+            mainRoot += `${pathArray[i]}/`;
+        }
         const templateName = pathArray[pathArray.length - 1];
+        console.log(`${mainRoot}${headerName}-header`); // TEST
         return Promise.all([
             templater.get(templatePath),
-            templater.get(`${mainRoot}/${mainRoot}-header`),
+            templater.get(`${mainRoot}${headerName}-header`),
             templater.get('shared/footer-recent'),
             templater.get('shared/footer-archived')
         ])

@@ -16,6 +16,10 @@ const blogController = {
                 Database.getAllPosts(params.category),
                 Database.getCategory(params.category),
             ]);
+            // Call helper to be avalable in template
+            dateFormatter.do();
+            stringTrim.do();
+            lengthOfObject.do();
             if (params.category && params.post) { // Post
                 data.then((data) => {
                     const posts = data[0];
@@ -29,11 +33,8 @@ const blogController = {
                     Database.getAllComments(currentPost)
                         .then(comments => {
                             console.log(comments);
-                            // Call helper to be avalable in template
-                            dateFormatter.do();
-                            stringTrim.do();
-                            lengthOfObject.do();
-                            Normalizer.standard('blog/post', { user, comments, currentPost, category })
+
+                            Normalizer.standard('blog/post/post', { user, comments, currentPost, category })
                                 .then(() => {
                                     const authUser = Database.app.auth().currentUser;
                                     $('#add-comment-button').on('click', () => {

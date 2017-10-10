@@ -9,13 +9,6 @@
     <div class="no-side-padding col-lg-8 posts-container list-unstyled">
         <div class="post-card mb-5">
             <h1 class="post-title mb-3">{{currentPost.title}}</h1>
-            <h5 class="post-sub-title mb-2">
-                Posted by
-                <span>{{currentPost.author}}</span>
-                in
-                <span>{{currentPost.categoryHref}}</span>
-                on {{formatDate currentPost.date "short"}} | Comments
-            </h5>
             <div class="container">
                 <img class="post-image float-left" src="../../img/post-img.png" alt="post-image">
                 <p>{{currentPost.text}}...</p>
@@ -31,15 +24,19 @@
             <h1>{{lengthOfObject comments}}</h1>
             <ul class="comments no-side-padding list-unstyled">
                 {{#each comments}}
-                <li>
-                    <h2>{{this.author}}
-                        <span>| {{formatDate this.date "short"}}</span>
-                    </h2>
-                    <p>{{this.text}}</p>
+                <li class="media">
+                    <img class="d-flex mr-3" src="../../img/placeholder-66-66.png" alt="comment-author-image">
+                    <div class="media-body">
+                        <h2>{{this.author}}
+                            <span>| {{formatDate this.date "short"}}</span>
+                        </h2>
+                        <p>{{this.text}}</p>
 
-                    {{!-- If Comment is too long, then show this button!!! --}}
-                    <a class="button-1 p-1 mr-4 button-read-more" href="#!blog/{{currentPost.categoryHref}}/cooment.href/">Read more</a>
+                        {{!-- If Comment is too long, then show this button!!! --}}
+                        <a class="button-1 p-1 button-read-more" href="#!blog/{{currentPost.categoryHref}}/cooment.href/">Read more</a>
+                    </div>
                 </li>
+                <div class="comment-bubble-arrow"></div>
                 {{/each}}
             </ul>
 

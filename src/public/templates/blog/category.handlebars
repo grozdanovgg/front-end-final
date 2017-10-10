@@ -16,7 +16,7 @@
                 <span>{{value.author}}</span>
                 in
                 <span>{{value.categoryHref}}</span>
-                on {{formatDate value.date "short"}} | Comments
+                on {{formatDate value.date "short"}} | {{lengthOfObject value.comments}}
             </h5>
             <div class="container">
                 <img class="post-image float-left" src="../../img/post-img.png" alt="post-image">
@@ -35,5 +35,4 @@
         <div>Archives</div>
         <div>Recent posts</div>
     </div>
-
 </div>
