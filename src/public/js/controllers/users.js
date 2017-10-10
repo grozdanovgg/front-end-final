@@ -86,12 +86,10 @@ function toggleButtons(user) {
 
         toastr.success(`Hi, ${user.displayName}!`);
     } else {
-        // $('#signup').removeClass('hidden');
-        // $('#signin').removeClass('hidden');
-        // $('#user').addClass('hidden');
-        // $('#logout').addClass('hidden');
-        // $('#account').addClass('hidden');
-        toastr.success("Add and track your favourite currencies", "Register, it's cool");
+        console.log('OUT');
+        $('#nav-user').addClass('hidden');
+        $('#nav-account').removeClass('hidden');
+        toastr.success("You are logged out", "Register, its cool");
     }
 }
 

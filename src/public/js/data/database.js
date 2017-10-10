@@ -29,18 +29,6 @@ export let Database = (function () {
         }
     }
 
-    // function addNewCompany(companyObj) {
-    //     if (!companyObj.Symbol) {
-    //         toastr.error('No company symbol passed!');
-    //         return Promise.reject('No company symbol passed!');
-    //     } else {
-    //         return dbRef.ref('companies/' + companyObj.Symbol)
-    //             .set(companyObj)
-    //             //.then(success => toastr.success(`Company ${companyObj.Symbol} added/updated`))
-    //             .catch(error => toastr.error(error.message));
-    //     }
-    // }
-
     function addCategory(categoryObj) {
         console.log(categoryObj);
         if (!categoryObj.href) {
@@ -114,15 +102,6 @@ export let Database = (function () {
                 return response.val();
             });
     }
-
-    // function addNewSymbol(symbol) {
-    //     return dbRef.ref('symbols/' + symbol)
-    //         .set(true)
-    //         //.then(success => toastr.success(`Symbol ${symbol} added/updated`))
-    //         .catch(error => toastr.error(error.message));
-    // }
-
-    // Use to add favorites in bulk
     function addUserProperty(property, value) {
         const user = app.auth().currentUser;
 
@@ -135,28 +114,6 @@ export let Database = (function () {
             .then(success => toastr.success(`${property} set`))
             .catch(error => toastr.error(error.message));
     }
-
-    // // Use to edit property
-    // // Use to edit property
-    // function addFavorite(symbol) {
-    //     const user = app.auth().currentUser;
-    //     if (!user) {
-    //         console.log('No user logged in, yet');
-    //         return;
-    //     }
-    //     return dbRef.ref('users/' + user.uid + '/favorites/' + symbol)
-    //         .set(symbol);
-    // }
-
-    // function removeFavorite(symbol) {
-    //     const user = app.auth().currentUser;
-    //     if (!user) {
-    //         console.log('No user logged in, yet');
-    //         return;
-    //     }
-    //     return dbRef.ref('users/' + user.uid + '/favorites/' + symbol)
-    //         .remove();
-    // }
 
     function removeUser(uid) {
         console.log(uid);
@@ -184,30 +141,9 @@ export let Database = (function () {
             .then(response => response.val().property);
     }
 
-    // function getCompany(symbol) {
-    //     return dbRef.ref('companies/' + symbol)
-    //         .once('value');
-    // }
-
-    // function getSymbol(symbol) {
-    //     return dbRef.ref('symbols/' + symbol)
-    //         .once('value');
-    // }
-
-    // function getAllCompanies() {
-    //     return dbRef.ref('companies/')
-    //         .once('value');
-    // }
-
-    // function getAllSymbols() {
-    //     return dbRef.ref('symbols/')
-    //         .once('value');
-    // }
 
     let db = {
         addNewUser: addNewUser,
-        // addNewCompany: addNewCompany,
-        // addNewSymbol: addNewSymbol,
         addUserProperty: addUserProperty,
         removeUser: removeUser,
         getUser: getUser,
@@ -220,13 +156,6 @@ export let Database = (function () {
         getAllPosts: getAllPosts,
         addComment: addComment,
         getAllComments: getAllComments,
-        // getFavorites: getFavorites,
-        // getCompany: getCompany,
-        // getSymbol: getSymbol,
-        // getAllCompanies: getAllCompanies,
-        // getAllSymbols: getAllSymbols,
-        // loadCompanies: loadCompanies,
-        // loadSymbols: loadSymbols,
         app: app
     };
     return db;

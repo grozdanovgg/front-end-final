@@ -32,8 +32,6 @@ const blogController = {
 
                     Database.getAllComments(currentPost)
                         .then(comments => {
-                            console.log(comments);
-
                             Normalizer.standard('blog/post/post', { user, comments, currentPost, category })
                                 .then(() => {
                                     const authUser = Database.app.auth().currentUser;
@@ -51,7 +49,7 @@ const blogController = {
                                         Database.addComment(commentObj, currentPost);
                                     });
                                 });
-                        })
+                        });
                 });
             } else { // Category
                 data.then((data) => {
