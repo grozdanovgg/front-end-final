@@ -1,6 +1,7 @@
 import * as firebase from 'firebaseApp';
 import 'firebaseAuth';
 import 'firebaseDb';
+import { sortByObjKey } from '../utils/sort-obj-by-key.js';
 
 export let Database = (function () {
     const config = {
@@ -85,7 +86,12 @@ export let Database = (function () {
         return dbRef.ref(`categories/${categoryHref}/posts`)
             .once('value')
             .then(response => {
-                return response.val();
+                const postsObj = response.val();
+                console.log(postsObj);
+                const result = sortByObjKey(postsObj, 'date', 'descending');
+
+                return result;
+                // return response.val();
             });
     }
 
@@ -96,10 +102,14 @@ export let Database = (function () {
             .catch(error => toastr.error(error.message));
     }
     function getAllComments(post) {
+        console.log(post);
         return dbRef.ref(`categories/${post.categoryHref}/posts/${post.href}/comments`)
             .once('value')
             .then(response => {
-                return response.val();
+                if (response) {
+                    return response.val();
+                }
+                return [];
             });
     }
     function addUserProperty(property, value) {

@@ -7,6 +7,8 @@ import { stringToHref } from '../utils/stringToHref.js';
 import { dateFormatter } from '../utils/helper-date-formatter.js';
 import { stringTrim } from '../utils/helper-string-trim.js';
 import { lengthOfObject } from '../utils/helper-length-of-object.js';
+import { findObjByHref } from '../utils/find-obj-by-href.js';
+import { refreshComments } from '../utils/comments-refresh.js';
 
 const blogController = {
     get(params) {
@@ -24,32 +26,9 @@ const blogController = {
                 data.then((data) => {
                     const posts = data[0];
                     const category = data[1];
+                    const currentPost = findObjByHref(params.post, posts);
 
-                    const currentPost = posts[params.post];
-                    console.log(posts);
-                    console.log(params.post);
-                    console.log(currentPost);
-
-                    Database.getAllComments(currentPost)
-                        .then(comments => {
-                            Normalizer.standard('blog/post/post', { user, comments, currentPost, category })
-                                .then(() => {
-                                    const authUser = Database.app.auth().currentUser;
-                                    $('#add-comment-button').on('click', () => {
-                                        const date = Date.now();
-                                        console.log('DATE: ' + date);
-                                        const commentObj = {
-                                            text: $('#post-text').val(),
-                                            href: date,
-                                            author: authUser.displayName,
-                                            date: date,
-                                            post: currentPost
-                                        };
-                                        console.log(commentObj);
-                                        Database.addComment(commentObj, currentPost);
-                                    });
-                                });
-                        });
+                    refreshComments(user, category, currentPost);
                 });
             } else { // Category
                 data.then((data) => {
