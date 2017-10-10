@@ -26,29 +26,21 @@
             <div id="gradient-horisontal"></div>
         </div>
 
+        {{!-- COMMENTS --}}
         <div clas="comments-container">
+            <h1>{{lengthOfObject comments}}</h1>
             <ul class="comments no-side-padding list-unstyled">
+                {{#each comments}}
                 <li>
-                    <h2>Name</h2>
-                    <p>Some text here</p>
+                    <h2>{{this.author}}
+                        <span>| {{formatDate this.date "short"}}</span>
+                    </h2>
+                    <p>{{this.text}}</p>
 
                     {{!-- If Comment is too long, then show this button!!! --}}
                     <a class="button-1 p-1 mr-4 button-read-more" href="#!blog/{{currentPost.categoryHref}}/cooment.href/">Read more</a>
                 </li>
-                <li>
-                    <h2>Name</h2>
-                    <p>Some text here</p>
-
-                    {{!-- If Comment is too long, then show this button!!! --}}
-                    <a class="button-1 p-1 mr-4 button-read-more" href="#!blog/{{currentPost.categoryHref}}/cooment.href/">Read more</a>
-                </li>
-                <li>
-                    <h2>Name</h2>
-                    <p>Some text here</p>
-
-                    {{!-- If Comment is too long, then show this button!!! --}}
-                    <a class="button-1 p-1 mr-4 button-read-more" href="#!blog/{{currentPost.categoryHref}}/cooment.href/">Read more</a>
-                </li>
+                {{/each}}
             </ul>
 
             {{!-- Post input text area --}}

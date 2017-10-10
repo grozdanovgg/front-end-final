@@ -171,17 +171,6 @@ const usersController = {
 
                                         Database.addPost(postObj, postObj.categoryHref);
                                     });
-                                    $('#add-comment-button').on('click', () => {
-                                        const date = new Date();
-                                        const commentObj = {
-                                            text: $('#post-text').val(),
-                                            href: date,
-                                            author: authUser.displayName,
-                                            date: date,
-                                            postRef
-                                        };
-                                        Database.addComment(commentObj);
-                                    });
                                 });
                         });
                 }

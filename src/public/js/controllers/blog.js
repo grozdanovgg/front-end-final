@@ -6,6 +6,7 @@ import { Data } from 'data';
 import { stringToHref } from '../utils/stringToHref.js';
 import { dateFormatter } from '../utils/helper-date-formatter.js';
 import { stringTrim } from '../utils/helper-string-trim.js';
+import { lengthOfObject } from '../utils/helper-length-of-object.js';
 
 const blogController = {
     get(params) {
@@ -24,10 +25,32 @@ const blogController = {
                     console.log(posts);
                     console.log(params.post);
                     console.log(currentPost);
-                    // Call helper to be avalable in template
-                    dateFormatter.do();
-                    stringTrim.do();
-                    Normalizer.standard('blog/post', { user, currentPost, category });
+
+                    Database.getAllComments(currentPost)
+                        .then(comments => {
+                            console.log(comments);
+                            // Call helper to be avalable in template
+                            dateFormatter.do();
+                            stringTrim.do();
+                            lengthOfObject.do();
+                            Normalizer.standard('blog/post', { user, comments, currentPost, category })
+                                .then(() => {
+                                    const authUser = Database.app.auth().currentUser;
+                                    $('#add-comment-button').on('click', () => {
+                                        const date = Date.now();
+                                        console.log('DATE: ' + date);
+                                        const commentObj = {
+                                            text: $('#post-text').val(),
+                                            href: date,
+                                            author: authUser.displayName,
+                                            date: date,
+                                            post: currentPost
+                                        };
+                                        console.log(commentObj);
+                                        Database.addComment(commentObj, currentPost);
+                                    });
+                                });
+                        })
                 });
             } else { // Category
                 data.then((data) => {

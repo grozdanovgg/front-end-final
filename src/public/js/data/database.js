@@ -93,33 +93,27 @@ export let Database = (function () {
                 .catch(error => toastr.error(error.message));
         }
     }
-
-    function addComment(commentObj, ref) {
-        console.log(commentObj);
-        console.log(ref);
-        return dbRef.ref(`categories/${ref}/comments/${commentObj.href}`)
-            .set(commentObj)
-            .then(success => toastr.success(`Comment ${postObj.href} added`))
-            .catch(error => toastr.error(error.message));
-    }
-
-    // function removePost(postObj) {
-    //     return dbRef.ref('categories/' + category.title)
-    //         .remove();
-    // }
-
     function getAllPosts(categoryHref) {
-        return dbRef.ref(`categories/${categoryHref}`).child('posts')
+        return dbRef.ref(`categories/${categoryHref}/posts`)
             .once('value')
             .then(response => {
-                if (!response.val()) {
-                    return [{ title: 'Post1', text: 'Post text 1' }, { title: 'Post2', text: 'Post text 2' }];
-                }
-                console.log(response.val());
                 return response.val();
             });
     }
 
+    function addComment(commentObj, postObj) {
+        return dbRef.ref(`categories/${postObj.categoryHref}/posts/${postObj.href}/comments/${commentObj.href}`)
+            .set(commentObj)
+            .then(success => toastr.success(`Comment ${postObj.href} added`))
+            .catch(error => toastr.error(error.message));
+    }
+    function getAllComments(post) {
+        return dbRef.ref(`categories/${post.categoryHref}/posts/${post.href}/comments`)
+            .once('value')
+            .then(response => {
+                return response.val();
+            });
+    }
 
     // function addNewSymbol(symbol) {
     //     return dbRef.ref('symbols/' + symbol)
@@ -225,6 +219,7 @@ export let Database = (function () {
         addPost: addPost,
         getAllPosts: getAllPosts,
         addComment: addComment,
+        getAllComments: getAllComments,
         // getFavorites: getFavorites,
         // getCompany: getCompany,
         // getSymbol: getSymbol,
