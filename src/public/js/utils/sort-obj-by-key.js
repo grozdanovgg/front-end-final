@@ -5,7 +5,6 @@ export function sortByObjKey(obj, key, direction) {
     objKeys.forEach(key => {
         arr.push(obj[key]);
     });
-
     arr.sort((a, b) => {
         if (direction !== 'descending') {
             return a.date - b.date;

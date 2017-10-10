@@ -66,8 +66,35 @@
         <div id="gradient-vertical"></div>
     </div>
     <div class="col">
-        <div>Recent comments</div>
-        <div>Archives</div>
-        <div>Recent posts</div>
+        <div>
+            <h3>Recent comments</h3>
+            <ul>
+                {{#each recentComments}}
+                <li>
+                    <a href="#!blog/cars/{{this.postHref}}">{{stringTrim this.text 35}}...</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div>
+            <h3>Archives</h3>
+            <ul>
+                {{#each archivePosts}}
+                <li>
+                    <a href="#!blog/cars/{{this.href}}">{{this.title}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div>
+            <h3>Recent posts</h3>
+            <ul>
+                {{#each recentPosts}}
+                <li>
+                    <a href="#!blog/cars/{{this.href}}">{{this.title}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
     </div>
 </div>

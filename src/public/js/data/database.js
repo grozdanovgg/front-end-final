@@ -76,6 +76,8 @@ export let Database = (function () {
         } else {
             dbRef.ref(`recent-posts/${postObj.href}`)
                 .set(postObj);
+            dbRef.ref(`archive-posts/${postObj.href}`)
+                .set(postObj);
             return dbRef.ref(`categories/${categoryHref}/posts/${postObj.href}`)
                 .set(postObj)
                 .then(success => toastr.success(`Post ${postObj.href} added/updated`))
@@ -94,14 +96,29 @@ export let Database = (function () {
         return dbRef.ref('recent-posts')
             .once('value')
             .then(response => {
-                return response.val();
+                const result = response.val();
+                if (result) {
+                    return response.val();
+                }
+                return [];
+            });
+    }
+
+    function getArchivePosts() {
+        return dbRef.ref('archive-posts')
+            .once('value')
+            .then(response => {
+                const result = response.val();
+                if (result) {
+                    return response.val();
+                }
+                return [];
             });
     }
 
     function addComment(commentObj, postObj) {
-        console.log(commentObj);
-        console.log(postObj);
-
+        dbRef.ref(`recent-comments/${commentObj.href}`)
+            .set(commentObj);
         return dbRef.ref(`categories/${postObj.categoryHref}/posts/${postObj.href}/comments/${commentObj.href}`)
             .set(commentObj)
             .then(success => toastr.success(`Comment ${postObj.href} added`))
@@ -113,6 +130,18 @@ export let Database = (function () {
             .once('value')
             .then(response => {
                 if (response) {
+                    return response.val();
+                }
+                return [];
+            });
+    }
+
+    function getRecentComments() {
+        return dbRef.ref('recent-comments')
+            .once('value')
+            .then(response => {
+                const result = response.val();
+                if (result) {
                     return response.val();
                 }
                 return [];
@@ -170,8 +199,11 @@ export let Database = (function () {
         getAllCategories: getAllCategories,
         addPost: addPost,
         getAllPosts: getAllPosts,
+        getRecentPosts: getRecentPosts,
+        getArchivePosts: getArchivePosts,
         addComment: addComment,
         getAllComments: getAllComments,
+        getRecentComments: getRecentComments,
         app: app
     };
     return db;
