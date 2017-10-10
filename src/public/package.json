@@ -9,6 +9,7 @@
     "body-parser": "~1.17.1",
     "bootstrap": "^4.0.0-beta",
     "cookie-parser": "~1.4.3",
+    "datatables.net": "^1.10.16",
     "debug": "~2.6.3",
     "express": "~4.15.2",
     "firebase": "^3.9.0",

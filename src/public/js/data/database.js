@@ -118,7 +118,9 @@ export let Database = (function () {
 
     function addComment(commentObj, postObj) {
         dbRef.ref(`recent-comments/${commentObj.href}`)
-            .set(commentObj);
+            .set(commentObj)
+            .then(success => toastr.success(`Comment ${postObj.href} added`))
+            .catch(error => toastr.error(error.message));
         return dbRef.ref(`categories/${postObj.categoryHref}/posts/${postObj.href}/comments/${commentObj.href}`)
             .set(commentObj)
             .then(success => toastr.success(`Comment ${postObj.href} added`))

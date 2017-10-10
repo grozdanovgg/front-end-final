@@ -24,6 +24,7 @@ System.config({
         'firebaseDb': './node_modules/firebase/firebase-database.js',
         'firebaseAuth': './node_modules/firebase/firebase-auth.js',
         'jquery': './node_modules/jquery/dist/jquery.min.js',
+        'datatables': './node_modules/datatables.net/js/jquery.dataTables.js',
         'navigo': './node_modules/navigo/lib/navigo.min.js',
         'moment': './node_modules/moment/min/moment-with-locales.min.js',
         // 'tablesorter': './node_modules/tablesorter/dist/js/jquery.tablesorter.min.js',

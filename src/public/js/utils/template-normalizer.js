@@ -38,7 +38,6 @@ const Normalizer = {
             mainRoot += `${pathArray[i]}/`;
         }
         const templateName = pathArray[pathArray.length - 1];
-        console.log(`${mainRoot}${headerName}-header`); // TEST
         return Promise.all([
             templater.get(templatePath),
             templater.get(`${mainRoot}${headerName}-header`),
@@ -48,6 +47,8 @@ const Normalizer = {
             .then(templates => {
                 $('.active').removeClass('active');
                 $(`#nav-${templateName}`).addClass('active');
+
+
 
                 $('#main-root').html(templates[0](data));
                 $('#carousel-container').html(templates[1](data));

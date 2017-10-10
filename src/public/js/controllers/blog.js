@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import dt from 'datatables';
 import { templater } from '../utils/templater.js';
 import { Normalizer } from '../utils/template-normalizer.js';
 import { Database } from '../data/database.js';
@@ -15,6 +16,7 @@ import { sortByObjKey } from '../utils/sort-obj-by-key.js';
 const blogController = {
     get(params) {
         const user = Database.app.auth().currentUser;
+
         if (params) { // Common
             const data = Promise.all([
                 Database.getAllPosts(params.category),
@@ -41,7 +43,6 @@ const blogController = {
                     const recentComments = sortByObjKey(recentCommentsObj, 'date', 'descending').slice(0, 5);
                     // const currentPost = findObjByHref(params.post, posts);
                     const currentPost = postsObj[params.post];
-                    console.log(recentComments);
                     refreshComments(user, category, currentPost, recentPosts, archivePosts, recentComments);
                 });
             } else { // Category
@@ -56,8 +57,20 @@ const blogController = {
                     const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
                     const recentCommentsObj = data[4];
                     const recentComments = sortByObjKey(recentCommentsObj, 'date', 'descending').slice(0, 5);
-                    console.log(recentComments);
-                    Normalizer.standard('blog/category', { user, posts, category, recentPosts, archivePosts, recentComments });
+
+                    Normalizer.standard('blog/category', { user, posts, category, recentPosts, archivePosts, recentComments })
+                        .then(() => {
+                            console.log($('#posts-table'));
+                            $('#posts-table').DataTable({
+                                searching: false,
+                                ordering: false,
+                                responsive: true,
+                                lengthChange: false,
+                                pageLength: 2,
+                                pagingType: 'numbers',
+                                language: { info: 'Page _PAGE_ of _PAGES_' },
+                            });
+                        });
                 });
             }
         }

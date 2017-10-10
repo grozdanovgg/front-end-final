@@ -83,6 +83,38 @@ footer li a:hover{
     color: white;
 }
 
+thead{
+    display: none;
+}
+td{
+    border: 0px !important;
+}
+.dataTables_info{
+    color: #8c8a8a;
+    font-size: 18px;
+    display: inline;   
+    position: absolute;
+    right: 120px;
+    padding-right: 30px;
+}
+.paging_numbers {
+    font-size: 30px;
+    display: inline;
+    position: absolute;
+    right: 0;    
+    padding-right: 30px;
+}
+.paging_numbers a{
+    text-decoration: none;
+    color: #1d1d1d;
+}
+.current{
+    color:#c2c2c2 !important;
+}
+
+#posts-table_wrapper{
+    padding-bottom: 70px;
+}
 .footer-bottom {
     /* background:  linear-gradient(to top, #131a25,#0d131b); */
     background:  linear-gradient(to top, #131a25,#0d131b);

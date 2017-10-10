@@ -4,33 +4,42 @@
 </div>
 
 <div class="row">
-
-    <ul class="no-side-padding col-lg-8 posts-container list-unstyled">
-
-        {{#each posts as |value key|}}
-
-        <li class="post-card mb-5">
-            <h1 class="post-title mb-3">{{value.title}}</h1>
-            <h5 class="post-sub-title mb-2">
-                Posted by
-                <span>{{value.author}}</span>
-                in
-                <span>{{value.categoryHref}}</span>
-                on {{formatDate value.date "short"}} | {{lengthOfObject value.comments}}
-            </h5>
-            <div class="container">
-                <img class="post-image float-left" src="../../img/post-img.png" alt="post-image">
-                <p>{{stringTrim value.text 680}}...</p>
-            </div>
-            <a class="button-1 p-1 mr-4 button-read-more" href="#!blog/{{value.categoryHref}}/{{value.href}}">Read more</a>
-        </li>
-        {{/each}}
-
-    </ul>
+    <div class="no-side-padding col-lg-8 posts-container">
+        <table id="posts-table" class="table " cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="posts-container">
+                {{#each posts as |value key|}}
+                <tr>
+                    <td class="post-card mb-5">
+                        <h1 class="post-title mb-3">{{value.title}}</h1>
+                        <h5 class="post-sub-title mb-2">
+                            Posted by
+                            <span>{{value.author}}</span>
+                            in
+                            <span>{{value.categoryHref}}</span>
+                            on {{formatDate value.date "short"}} | {{lengthOfObject value.comments}}
+                        </h5>
+                        <div class="container">
+                            <img class="post-image float-left" src="../../img/post-img.png" alt="post-image">
+                            <p>{{stringTrim value.text 680}}...</p>
+                        </div>
+                        <a class="button-1 p-1 mr-4 button-read-more" href="#!blog/{{value.categoryHref}}/{{value.href}}">Read more</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
     <div class="col-lg-1" id="wrap-vertical">
         <div id="gradient-vertical"></div>
     </div>
-    <div class="col">
+
+    {{!-- Sidebar --}}
+    <div class="col-lg-3">
         <div>
             <h3>Recent comments</h3>
             <ul>
