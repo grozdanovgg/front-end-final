@@ -40,6 +40,11 @@ gulp.task('copy:others', () => {
             './src/**/*.html',
             './src/**/*.handlebars',
             './src/**/*.ttf',
+            './src/**/*.otf',
+            './src/**/*.eot',
+            './src/**/*.svg',
+            './src/**/*.woff',
+            './src/**/*.woff2',
         ])
         .pipe(gulp.dest('./build'));
 });

@@ -77,6 +77,7 @@ footer li a:hover{
     color: white;
 }
 
+
 thead{
     display: none;
 }
@@ -100,7 +101,7 @@ td{
 }
 .paging_numbers a{
     text-decoration: none;
-    color: #1d1d1d;
+    color: #758b8d;
 }
 .current{
     color:#c2c2c2 !important;
@@ -134,6 +135,23 @@ section{
     background-position: top center;
     background-repeat: repeat;
     background-size: auto;
+}
+.sidebar-container h2{
+    color: #758b8d;
+}
+.sidebar-container ul{
+    padding-left: 25px;
+
+}
+
+.sidebar-container li{
+    line-height: 30px;
+}
+.sidebar-container li a{
+   text-decoration: none;
+   color: #696969;
+   font-family: 'Droid Sans', sans-serif;
+   font-size: 12px;
 }
 
 .hidden{
@@ -486,7 +504,9 @@ p {
     .header-standard{
         height: 360px !important;
     }
-
+    .sidebar-container{
+        left: -50px;
+    }
     .logo{
         height: auto;
         width:100%;

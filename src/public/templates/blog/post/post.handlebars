@@ -21,9 +21,9 @@
 
         {{!-- COMMENTS --}}
         <div class="comments-container mt-4">
-            <h1 class="mb-4">{{lengthOfObject comments}}</h1>
+            <h1 class="mb-4">{{lengthOfObject currentPost.comments}}</h1>
             <ul class="comments no-side-padding list-unstyled">
-                {{#each comments}}
+                {{#each currentPost.comments}}
                 <div class="comment-bubble">
                     <li class="media">
                         <img class="d-flex mr-3" src="../../img/placeholder-66-66.png" alt="comment-author-image">
@@ -67,9 +67,9 @@
     </div>
 
     {{!-- Sidebar --}}
-    <div class="col-lg-3">
+    <div class="col-lg-3 sidebar-container">
         <div>
-            <h3>Recent comments</h3>
+            <h2>Recent comments</h2>
             <ul>
                 {{#each recentComments}}
                 <li>
@@ -79,7 +79,7 @@
             </ul>
         </div>
         <div>
-            <h3>Archives</h3>
+            <h2>Archives</h2>
             <ul>
                 {{#each archivePosts}}
                 <li>
@@ -89,7 +89,7 @@
             </ul>
         </div>
         <div>
-            <h3>Recent posts</h3>
+            <h2>Recent posts</h2>
             <ul>
                 {{#each recentPosts}}
                 <li>

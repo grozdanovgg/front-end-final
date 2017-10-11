@@ -16,7 +16,7 @@ import { sortByObjKey } from '../utils/sort-obj-by-key.js';
 const blogController = {
     get(params) {
         const user = Database.app.auth().currentUser;
-
+        console.log(user);
         if (params) { // Common
             const data = Promise.all([
                 Database.getAllPosts(params.category),
@@ -33,32 +33,32 @@ const blogController = {
             if (params.category && params.post) { // Post
                 data.then((data) => {
                     const postsObj = data[0];
-                    const posts = sortByObjKey(postsObj, 'date', 'descending');
-                    const category = data[1];
+                    const categoryObj = data[1];
                     const recentPostsObj = data[2];
-                    const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
                     const archivePostsObj = data[3];
-                    const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
                     const recentCommentsObj = data[4];
+                    const posts = sortByObjKey(postsObj, 'date', 'descending');
+                    const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
+                    const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
                     const recentComments = sortByObjKey(recentCommentsObj, 'date', 'descending').slice(0, 5);
                     // const currentPost = findObjByHref(params.post, posts);
                     const currentPost = postsObj[params.post];
-                    refreshComments(user, category, currentPost, recentPosts, archivePosts, recentComments);
+
+                    refreshComments(user, categoryObj, currentPost, recentPosts, archivePosts, recentComments);
                 });
             } else { // Category
                 data.then((data) => {
-                    console.log(data);
                     const postsObj = data[0];
-                    const posts = sortByObjKey(postsObj, 'date', 'descending');
-                    const category = data[1];
+                    const categoryObj = data[1];
                     const recentPostsObj = data[2];
-                    const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
                     const archivePostsObj = data[3];
-                    const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
                     const recentCommentsObj = data[4];
+                    const posts = sortByObjKey(postsObj, 'date', 'descending');
+                    const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
+                    const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
                     const recentComments = sortByObjKey(recentCommentsObj, 'date', 'descending').slice(0, 5);
 
-                    Normalizer.standard('blog/category', { user, posts, category, recentPosts, archivePosts, recentComments })
+                    Normalizer.standard('blog/category', { user, posts, categoryObj, recentPosts, archivePosts, recentComments })
                         .then(() => {
                             console.log($('#posts-table'));
                             $('#posts-table').DataTable({
