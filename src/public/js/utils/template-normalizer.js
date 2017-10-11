@@ -44,6 +44,8 @@ const Normalizer = {
             templater.get('shared/footer-archived')
         ])
             .then(templates => {
+                console.log(data);
+                console.log(templates[1](data));
                 $('.active').removeClass('active');
                 $(`#nav-${templateName}`).addClass('active');
 
