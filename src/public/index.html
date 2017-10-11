@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Front ent final</title>
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./node_modules/toastr/build/toastr.css" rel="stylesheet">
+    <link href="./css/libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/carousel.css" rel="stylesheet">
+    <link href="./css/nav.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+
+<body class="background-standard">
+    <header class="container-fluid">
+        <div class="row nav-row">
+            <!-- Logo START-->
+            <div class="col col-md-2">
+                <a href="#!home">
+                    <img src="./img/logo.png" class="logo" alt="logo image">
+                </a>
+            </div>
+            <div class="slogan col-md-4 text-secondary font-italic">
+                It All Starts with Your Stunning Website
+            </div>
+            <!-- Logo END-->
+
+            <!-- Navigation START-->
+            <nav class="navbar navbar-expand-md navbar-light col">
+                <!-- <a class="navbar-brand" href="#"></a> -->
+
+                <div class="navbar-toggler-wrap">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="navbar-custom-toggler-icon fa fa-bars fa-lg" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto" id="menu-bar">
+                        <li id="nav-home" class="nav-item active">
+                            <a class="nav-link" href="#">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li id="nav-themes" class="nav-item">
+                            <a class="nav-link" href="#">Themes</a>
+                        </li>
+                        <li id="nav-features" class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li id="nav-about" class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li id="nav-blog" class="nav-item">
+                            <a class="nav-link" href="#!blog">Blog</a>
+                        </li>
+                        <li id="nav-support" class="nav-item">
+                            <a class="nav-link" href="#">Support</a>
+                        </li>
+                        <li id="nav-account" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                href="#">User account</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li class="dropdown-item">
+                                    <a href="#!login">Login</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#!register">Register</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="nav-user" class="nav-item dropdown hidden"></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- Navigation END -->
+        </div>
+
+        <div id="carousel-container"></div>
+    </header>
+
+    <section class="container-fluid">
+        <div id="main-root"></div>
+        <div id="secondary-root"></div>
+    </section>
+
+    <footer class="container-fluid d-flex flex-column">
+        <div class="footer-container row mb-auto mt-5 p-2">
+            <div class="col col-left">
+                <img class="logo-footer" src="./img/logo.png" alt="logo">
+                <strong class="small copyright">2017 Copyright</strong>
+                <div>
+                    <img class="float-left p-2" src="./img/placeholder-66-66.png" alt="placeholder">
+                    <p class="small">
+                        Unites beauty and advanced technology to create your stunning website. It’s easy and free. Unites beauty and advanced technology
+                        to create your stunning website. It’s easy and free.Unites beauty and advanced technology to create
+                        your stunning website. It’s easy and free. Unites beauty and advanced technology to create your stunning
+                        website. It’s easy and free.
+                    </p>
+                </div>
+            </div>
+            <div class="col col-middle">
+                <h3>Recent posts</h3>
+                <div id="footer-recent"></div>
+            </div>
+            <div class="col col-right">
+                <h3>Archives</h3>
+                <div id="footer-archived"></div>
+            </div>
+        </div>
+        <!-- Footer bottom START -->
+        <div class="row p-2 footer-bottom">
+            <!-- Footer navigation START -->
+            <ul class="col nav justify-content-start small">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Disabled</a>
+                </li>
+            </ul>
+            <!-- Footer navigation END -->
+            <div class="col text-right align-middle">
+                <p>Designed by
+                    <span>@grozdanovgg</span> | Powered by
+                    <span>TelerikAcademy</span>
+                </p>
+            </div>
+        </div>
+        <!-- Footer bottom END -->
+
+    </footer>
+
+    <script src="./node_modules/systemjs/dist/system.js"></script>
+    <script src="./system-config.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="./node_modules/navigo/lib/navigo.min.js"></script>
+    <script src="./node_modules/toastr/build/toastr.min.js" defer></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js" defer></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" defer></script>
+
+</body>
+
+</html>

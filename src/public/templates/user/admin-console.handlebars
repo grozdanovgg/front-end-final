@@ -1,0 +1,72 @@
+<div class="row">
+    <form class="form-horizontal col-lg-6">
+        <!-- Form Name -->
+        <legend>Categories</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col control-label" for="category-name">Category name</label>
+            <div class="col">
+                <input id="category-name" name="category-name" type="text" class="form-control input-md">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col control-label" for="category-escription">Category description</label>
+            <div class="col">
+                <textarea id="category-description" name="category-escription" rows="6" class="form-control input-md"></textarea>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col control-label" for="add-category-button"></label>
+            <div class="col">
+                <div id="add-category-button" name="add-category-button" class="btn btn-primary">Add category</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col control-label" for="delete-category-button"></label>
+            <div class="col">
+                <div id="delete-category-button" name="delete-category-button" class="btn btn-danger">Delete category</div>
+            </div>
+        </div>
+    </form>
+
+    <form class="form-horizontal col-lg-6">
+        <!-- Form Name -->
+        <legend>Posts</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col control-label" for="post-title">Post title</label>
+            <div class="col">
+                <input id="post-title" name="post-title" type="text" class="form-control input-md">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <select id="category-selector" class="form-control">
+                {{#each categoriesNames}}
+                <option class="category-option" value={{this}}>{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="col control-label" for="post-text">Post text</label>
+            <div class="col">
+                <textarea id="post-text" name="post-text" rows="6" class="form-control input-md"></textarea>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col control-label" for="add-post-button"></label>
+            <div class="col">
+                <div id="add-post-button" name="add-post-button" class="btn btn-primary">Add post</div>
+            </div>
+        </div>
+    </form>
+</div>
