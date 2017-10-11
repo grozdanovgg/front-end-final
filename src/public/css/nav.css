@@ -83,10 +83,10 @@
 }
 #menu-bar ul {
   background: #DDDDDD;
-  background: linear-gradient(top,  #FFFFFF,  #CFCFCF);
+  background: linear-gradient(to top,  #FFFFFF,  #CFCFCF);
   background: -ms-linear-gradient(top,  #FFFFFF,  #CFCFCF);
   background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CFCFCF));
-  background: -moz-linear-gradient(top,  #FFFFFF,  #CFCFCF);
+  background: -moz-linear-gradient(to top,  #FFFFFF,  #CFCFCF);
   display: none;
   margin: 0;
   padding: 0;

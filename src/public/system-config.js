@@ -9,7 +9,6 @@ System.config({
         'systemjs-babel-build': './node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
 
         // files
-        // 'main': './js/app.js',
         'data': './js/data/data.js',
         'database': './js/data/database.js',
         'templater': './js/utils/template.js',
@@ -27,8 +26,6 @@ System.config({
         'datatables': './node_modules/datatables.net/js/jquery.dataTables.js',
         'navigo': './node_modules/navigo/lib/navigo.min.js',
         'moment': './node_modules/moment/min/moment-with-locales.min.js',
-        // 'tablesorter': './node_modules/tablesorter/dist/js/jquery.tablesorter.min.js',
-        // 'bloodhound': './node_modules/typeahead.js-jspm/dist/bloodhound.min.js',
         'toastr': './node_modules/toastr/build/toastr.min.js'
     },
 

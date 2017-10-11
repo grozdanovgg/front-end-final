@@ -3,7 +3,7 @@ import $ from 'jquery';
 import { templater } from '../utils/templater.js';
 
 const Normalizer = {
-    home() {
+    home(data) {
         Promise.all([
             templater.get('home/home'),
             templater.get('home/home-carousel'),
@@ -18,8 +18,8 @@ const Normalizer = {
                 $('#main-root').html(templates[0]());
                 $('#carousel-container').html(templates[1]());
                 $('#secondary-root').html(templates[2]());
-                $('#footer-recent').html(templates[3]());
-                $('#footer-archived').html(templates[4]());
+                $('#footer-recent').html(templates[3](data));
+                $('#footer-archived').html(templates[4](data));
             })
             .then(() => {
                 const body = $('body').removeClass('background-standard');
@@ -52,8 +52,8 @@ const Normalizer = {
 
                 $('#main-root').html(templates[0](data));
                 $('#carousel-container').html(templates[1](data));
-                $('#footer-recent').html(templates[2]());
-                $('#footer-archived').html(templates[3]());
+                $('#footer-recent').html(templates[2](data));
+                $('#footer-archived').html(templates[3](data));
             })
             .then(() => {
                 $('#secondary-root').html('');

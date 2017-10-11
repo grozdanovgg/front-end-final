@@ -26,25 +26,29 @@ gulp.task('compile:js', () => {
 
 gulp.task('compile:css', () => {
     const plugins = [
-        autoprefixer({browsers: ['last 6 version']}),
+        autoprefixer({browsers: ['last 1 version']}),
         cssnano()
     ];
     return gulp.src('./src/public/css/*.css')
         .pipe(postcss(plugins))
         .pipe(gulp.dest('./build/public/css/'));
 });
-gulp.task('copy:all', () => {
+gulp.task('copy:others', () => {
     return gulp
         .src([
-            '!./src/public/**/*.js',
+            '!./src/public/node_modules',
             './src/**/*.html',
-            './src/**/*.js',
             './src/**/*.handlebars',
             './src/**/*.ttf',
-            './src/**/*.css',
         ])
         .pipe(gulp.dest('./build'));
 });
+gulp.task('copy:node', () => {
+    return gulp
+        .src(['./src/public/node_modules/**/*'])
+        .pipe(gulp.dest('./build/public/node_modules'));
+});
+
 gulp.task('copy:images', () =>
     gulp.src('src/public/img/*')
         .pipe(imagemin())
@@ -53,7 +57,7 @@ gulp.task('copy:images', () =>
 
 gulp.task('compile', ['compile:js','compile:css']);
 
-gulp.task('copy', ['copy:all', 'copy:images']);
+gulp.task('copy', ['copy:others', 'copy:images','copy:node']);
 
 gulp.task('build', gulpsync.sync(['clean', 'compile', 'copy']));
 

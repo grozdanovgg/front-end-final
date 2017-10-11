@@ -82,7 +82,7 @@ const blogController = {
                 .then((data) => {
                     const categories = data[0];
                     const recentPosts = data[1];
-                    Normalizer.standard('blog/blog', { user, categories, recentPosts });
+                    Normalizer.standard('blog/blog', { user, categories });
                 });
         }
     }

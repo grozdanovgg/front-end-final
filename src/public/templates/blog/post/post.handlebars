@@ -73,7 +73,7 @@
             <ul>
                 {{#each recentComments}}
                 <li>
-                    <a href="#!blog/cars/{{this.postHref}}">{{stringTrim this.text 35}}...</a>
+                    <a href="#!blog/{{this.categoryHref}}/{{this.postHref}}">{{stringTrim this.text 35}}...</a>
                 </li>
                 {{/each}}
             </ul>
@@ -83,7 +83,7 @@
             <ul>
                 {{#each archivePosts}}
                 <li>
-                    <a href="#!blog/cars/{{this.href}}">{{this.title}}</a>
+                    <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{this.title}}</a>
                 </li>
                 {{/each}}
             </ul>
@@ -93,7 +93,7 @@
             <ul>
                 {{#each recentPosts}}
                 <li>
-                    <a href="#!blog/cars/{{this.href}}">{{this.title}}</a>
+                    <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{this.title}}</a>
                 </li>
                 {{/each}}
             </ul>
