@@ -182,24 +182,44 @@ const usersController = {
     },
 
     signup() {
-        Normalizer.standard('user/register')
-            .then(template => {
-                $('#main-root').html(template);
-                $('#register').on('click', (event) => {
-                    event.stopPropagation();
-                    register();
-                });
+        Promise.all([
+            Database.getRecentPosts(),
+            Database.getArchivePosts(),
+        ])
+            .then((data) => {
+                const recentPostsObj = data[0];
+                const archivePostsObj = data[1];
+                const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
+                const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
+                Normalizer.standard('user/register')
+                    .then(template => {
+                        $('#main-root').html(template);
+                        $('#register').on('click', (event) => {
+                            event.stopPropagation();
+                            register();
+                        });
+                    });
             });
     },
 
     signin() {
-        Normalizer.standard('user/login')
-            .then(template => {
-                $('#main-root').html(template);
-                $('#login').on('click', (event) => {
-                    event.stopPropagation();
-                    login();
-                });
+        Promise.all([
+            Database.getRecentPosts(),
+            Database.getArchivePosts(),
+        ])
+            .then((data) => {
+                const recentPostsObj = data[0];
+                const archivePostsObj = data[1];
+                const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
+                const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
+                Normalizer.standard('user/login')
+                    .then(template => {
+                        $('#main-root').html(template);
+                        $('#login').on('click', (event) => {
+                            event.stopPropagation();
+                            login();
+                        });
+                    });
             });
     },
 

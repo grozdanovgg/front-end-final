@@ -53,7 +53,8 @@ export let Database = (function () {
             .once('value')
             .then(response => {
                 return response.val();
-            });
+            })
+            .catch(error => toastr.error(error.message));
     }
 
     function getAllCategories() {
@@ -65,11 +66,11 @@ export let Database = (function () {
                 }
                 console.log(response.val());
                 return response.val();
-            });
+            })
+            .catch(error => toastr.error(error.message));
     }
 
     function addPost(postObj, categoryHref) {
-        console.log(postObj);
         if (!postObj.href) {
             toastr.error('No post title passed!');
             return Promise.reject('No post title passed!');
@@ -89,7 +90,8 @@ export let Database = (function () {
             .once('value')
             .then(response => {
                 return response.val();
-            });
+            })
+            .catch(error => toastr.error(error.message));
     }
 
     function getRecentPosts() {
@@ -101,7 +103,8 @@ export let Database = (function () {
                     return response.val();
                 }
                 return [];
-            });
+            })
+            .catch(error => toastr.error(error.message));
     }
 
     function getArchivePosts() {
@@ -113,7 +116,8 @@ export let Database = (function () {
                     return response.val();
                 }
                 return [];
-            });
+            })
+            .catch(error => toastr.error(error.message));
     }
 
     function addComment(commentObj, postObj) {
@@ -132,7 +136,8 @@ export let Database = (function () {
                     return response.val();
                 }
                 return [];
-            });
+            })
+            .catch(error => toastr.error(error.message));
     }
 
     function getRecentComments() {
@@ -144,7 +149,8 @@ export let Database = (function () {
                     return response.val();
                 }
                 return [];
-            });
+            })
+            .catch(error => toastr.error(error.message));
     }
     function addUserProperty(property, value) {
         const user = app.auth().currentUser;
