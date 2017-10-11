@@ -6,7 +6,10 @@ import 'toastr';
 import { Normalizer } from '../utils/template-normalizer.js';
 import { stringToHref } from '../utils/stringToHref.js';
 import { sortByObjKey } from '../utils/sort-obj-by-key.js';
+import { stringTrim } from '../utils/helper-string-trim.js';
 
+
+stringTrim.do();
 
 toastr.options = {
     "positionClass": "toast-bottom-center",
@@ -191,7 +194,7 @@ const usersController = {
                 const archivePostsObj = data[1];
                 const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
                 const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
-                Normalizer.standard('user/register')
+                Normalizer.standard('user/register', { recentPosts, archivePosts })
                     .then(template => {
                         $('#main-root').html(template);
                         $('#register').on('click', (event) => {
@@ -212,7 +215,7 @@ const usersController = {
                 const archivePostsObj = data[1];
                 const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
                 const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
-                Normalizer.standard('user/login')
+                Normalizer.standard('user/login', { recentPosts, archivePosts })
                     .then(template => {
                         $('#main-root').html(template);
                         $('#login').on('click', (event) => {

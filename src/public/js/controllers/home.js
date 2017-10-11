@@ -3,6 +3,7 @@ import { templater } from '../utils/templater.js';
 import { Normalizer } from '../utils/template-normalizer.js';
 import { Database } from '../data/database.js';
 import { sortByObjKey } from '../utils/sort-obj-by-key.js';
+import { stringTrim } from '../utils/helper-string-trim.js';
 
 
 const homeController = {
@@ -13,6 +14,7 @@ const homeController = {
             Database.getRecentComments()
         ])
             .then((data) => {
+                stringTrim.do();
                 const recentPostsObj = data[0];
                 const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
                 const archivePostsObj = data[1];

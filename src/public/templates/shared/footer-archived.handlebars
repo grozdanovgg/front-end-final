@@ -1,7 +1,7 @@
 <ul class="small">
     {{#each archivePosts}}
     <li>
-        <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{this.title}}</a>
+        <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{stringTrim this.title 25}}...</a>
     </li>
     {{/each}}
 </ul>

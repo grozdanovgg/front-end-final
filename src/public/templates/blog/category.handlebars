@@ -45,7 +45,7 @@
             <ul>
                 {{#each recentComments}}
                 <li>
-                    <a href="#!blog/{{this.categoryHref}}/{{this.postHref}}">{{stringTrim this.text 35}}...</a>
+                    <a href="#!blog/{{this.categoryHref}}/{{this.postHref}}">{{stringTrim this.text 25}}...</a>
                 </li>
                 {{/each}}
             </ul>
@@ -55,7 +55,7 @@
             <ul>
                 {{#each archivePosts}}
                 <li>
-                    <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{this.title}}</a>
+                    <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{stringTrim this.title 25}}...</a>
                 </li>
                 {{/each}}
             </ul>
@@ -65,7 +65,7 @@
             <ul>
                 {{#each recentPosts}}
                 <li>
-                    <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{this.title}}</a>
+                    <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{stringTrim this.title 25}}...</a>
                 </li>
                 {{/each}}
             </ul>

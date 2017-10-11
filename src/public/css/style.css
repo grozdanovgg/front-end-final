@@ -163,6 +163,9 @@ section{
 .hidden{
     display: none !important;
 }
+.collapse.show{
+    display: inline;
+}
 
 .small {
     font-size: 12px;

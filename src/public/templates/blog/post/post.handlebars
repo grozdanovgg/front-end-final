@@ -31,10 +31,13 @@
                             <h2>{{this.author}}
                                 <span>| {{formatDate this.date "short"}}</span>
                             </h2>
-                            <p>{{this.text}}</p>
-
-                            {{!-- If Comment is too long, then show this button!!! --}}
-                            <a class="button-1 p-1 button-read-more" href="#!blog/{{currentPost.categoryHref}}/cooment.href/">Read more</a>
+                            <p>{{textSplit this.text 430 1}}
+                                <span id={{this.href}} class="collapse">{{textSplit this.text 100 2}}</span>
+                            </p>
+                            <button class="button-1 p-1 button-read-more" type="button" data-toggle="collapse" data-target="#{{this.href}}" aria-expanded="false"
+                                aria-controls="{{this.href}}">
+                                Read more
+                            </button>
                         </div>
                     </li>
                     <div class="comment-bubble-arrow"></div>
@@ -73,7 +76,7 @@
             <ul>
                 {{#each recentComments}}
                 <li>
-                    <a href="#!blog/{{this.categoryHref}}/{{this.postHref}}">{{stringTrim this.text 35}}...</a>
+                    <a href="#!blog/{{this.categoryHref}}/{{this.postHref}}">{{stringTrim this.text 25}}...</a>
                 </li>
                 {{/each}}
             </ul>
@@ -83,7 +86,7 @@
             <ul>
                 {{#each archivePosts}}
                 <li>
-                    <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{this.title}}</a>
+                    <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{stringTrim this.title 25}}...</a>
                 </li>
                 {{/each}}
             </ul>
@@ -93,7 +96,7 @@
             <ul>
                 {{#each recentPosts}}
                 <li>
-                    <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{this.title}}</a>
+                    <a href="#!blog/{{this.categoryHref}}/{{this.href}}">{{stringTrim this.title 25}}...</a>
                 </li>
                 {{/each}}
             </ul>

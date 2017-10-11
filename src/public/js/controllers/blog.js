@@ -11,6 +11,8 @@ import { lengthOfObject } from '../utils/helper-length-of-object.js';
 import { findObjByHref } from '../utils/find-obj-by-href.js';
 // import { refreshComments } from '../utils/comments-refresh.js';
 import { sortByObjKey } from '../utils/sort-obj-by-key.js';
+import { textSplit } from '../utils/helper-text-split.js';
+
 
 
 const blogController = {
@@ -29,6 +31,7 @@ const blogController = {
             dateFormatter.do();
             stringTrim.do();
             lengthOfObject.do();
+            textSplit.do();
             if (params.category && params.post) { // Post
                 data.then((data) => {
                     const postsObj = data[0];
