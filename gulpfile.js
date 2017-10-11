@@ -26,8 +26,8 @@ gulp.task('compile:js', () => {
 
 gulp.task('compile:css', () => {
     const plugins = [
-        autoprefixer({browsers: ['last 1 version']}),
-        cssnano()
+        autoprefixer({ browsers: ['last 1 version'] }),
+        // cssnano()
     ];
     return gulp.src('./src/public/css/*.css')
         .pipe(postcss(plugins))
@@ -55,10 +55,10 @@ gulp.task('copy:images', () =>
         .pipe(gulp.dest('build/public/img'))
 );
 
-gulp.task('compile', ['compile:js','compile:css']);
+gulp.task('compile', ['compile:js', 'compile:css']);
 
-gulp.task('copy', ['copy:others', 'copy:images','copy:node']);
+gulp.task('copy', ['copy:others', 'copy:images', 'copy:node']);
 
 gulp.task('build', gulpsync.sync(['clean', 'compile', 'copy']));
 
-gulp.task('deploy', ["build"],  shell.task(['firebase deploy']));
+gulp.task('deploy', ["build"], shell.task(['firebase deploy']));
