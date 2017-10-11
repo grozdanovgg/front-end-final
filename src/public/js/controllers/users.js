@@ -86,7 +86,7 @@ function toggleButtons(user) {
 
         toastr.success(`Hi, ${user.displayName}!`);
     } else {
-        console.log('OUT');
+        console.log('No user detected');
         $('#nav-user').addClass('hidden');
         $('#nav-account').removeClass('hidden');
         toastr.success("You are logged out", "Register, its cool");
