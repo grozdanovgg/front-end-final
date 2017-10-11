@@ -16,7 +16,6 @@ import { sortByObjKey } from '../utils/sort-obj-by-key.js';
 const blogController = {
     get(params) {
         const user = Database.app.auth().currentUser;
-        console.log(user);
         if (params) { // Common
             const data = Promise.all([
                 Database.getAllPosts(params.category),
@@ -86,7 +85,6 @@ const blogController = {
 
                     Normalizer.standard('blog/category', { user, posts, categoryObj, recentPosts, archivePosts, recentComments })
                         .then(() => {
-                            console.log($('#posts-table'));
                             $('#posts-table').DataTable({
                                 searching: false,
                                 ordering: false,
@@ -103,12 +101,17 @@ const blogController = {
         else { // All Categories
             Promise.all([
                 Database.getAllCategories(),
-                Database.getRecentPosts()
+                Database.getRecentPosts(),
+                Database.getArchivePosts()
             ])
                 .then((data) => {
                     const categories = data[0];
-                    const recentPosts = data[1];
-                    Normalizer.standard('blog/blog', { user, categories });
+                    const recentPostsObj = data[1];
+                    const archivePostsObj = data[2];
+                    const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
+                    const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
+
+                    Normalizer.standard('blog/blog', { user, categories, recentPosts, archivePosts });
                 });
         }
     }

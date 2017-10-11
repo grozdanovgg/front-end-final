@@ -154,6 +154,12 @@ section{
    font-size: 12px;
 }
 
+.card{
+    width:290px;
+    height: 130px;
+    margin: 10px;
+    overflow: hidden;
+}
 .hidden{
     display: none !important;
 }

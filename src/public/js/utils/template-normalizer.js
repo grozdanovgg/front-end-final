@@ -29,7 +29,6 @@ const Normalizer = {
             });
     },
     standard(templatePath, data) {
-        console.log(templatePath);
         const pathArray = templatePath.split('/');
         const headerName = pathArray[pathArray.length - 2];
         let mainRoot = '';

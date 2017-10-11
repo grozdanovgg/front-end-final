@@ -7,21 +7,20 @@ import { sortByObjKey } from '../utils/sort-obj-by-key.js';
 
 const homeController = {
     get() {
-       Promise.all([
+        Promise.all([
             Database.getRecentPosts(),
             Database.getArchivePosts(),
             Database.getRecentComments()
         ])
-        .then((data)=>{
-            const recentPostsObj = data[0];
-            const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
-            const archivePostsObj = data[1];
-            const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
-            const recentCommentsObj = data[2];
-            const recentComments = sortByObjKey(recentCommentsObj, 'date', 'descending').slice(0, 5);
-            console.log({ recentPosts, archivePosts, recentComments });
-            Normalizer.home({ recentPosts, archivePosts, recentComments });
-        });
+            .then((data) => {
+                const recentPostsObj = data[0];
+                const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
+                const archivePostsObj = data[1];
+                const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
+                const recentCommentsObj = data[2];
+                const recentComments = sortByObjKey(recentCommentsObj, 'date', 'descending').slice(0, 5);
+                Normalizer.home({ recentPosts, archivePosts, recentComments });
+            });
     }
 };
 

@@ -86,7 +86,6 @@ function toggleButtons(user) {
 
         toastr.success(`Hi, ${user.displayName}!`);
     } else {
-        console.log('OUT');
         $('#nav-user').addClass('hidden');
         $('#nav-account').removeClass('hidden');
         toastr.success("You are logged out", "Register, its cool");
@@ -118,7 +117,6 @@ const usersController = {
                 const archivePostsObj = data[1];
                 const recentPosts = sortByObjKey(recentPostsObj, 'date', 'descending').slice(0, 5);
                 const archivePosts = sortByObjKey(archivePostsObj, 'date', 'descending').slice(5, 11);
-                console.log(data)
 
                 Normalizer.standard('user/user', { user, recentPosts, archivePosts })
                     .then(() => {
